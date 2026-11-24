@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gene 的互動式個人履歷與作品集：以商業思維洞察需求，結合 AI 協作、Vibe Coding、數位產品與資訊安全思維。">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gene｜從商業問題到可操作的 AI 產品">
+  <meta property="og:description" content="商業分析 × Vibe Coding × AI 產品原型 × 資安風險意識。探索 Gene 的個人履歷與作品。">
+  <title>Gene｜AI 產品探索・互動式履歷與作品集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- 開發預覽使用 Tailwind CDN。若正式部署，建議改成 Tailwind CLI / 建置版 CSS。 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          paper:'#FFFFFF', fog:'#F5F7FA', ink:'#25313C', brand:'#005BAC',
+          'brand-deep':'#003B73', secondary:'#00A7B5', 'secondary-light':'#59C2E6',
+          accent:'#7CC242', 'neutral-2':'#F5F7FA', 'neutral-3':'#D9E1EA'
+        },
+        fontFamily: { sans:['DM Sans','Noto Sans TC','sans-serif'] }
+      }}
+    };
+  </script>
+  <style>
+    /* ────────────────── 設計變數｜想換色彩可從這裡開始 ────────────────── */
+    :root {
+      --paper:#FFFFFF; --fog:#F5F7FA; --ink:#25313C; --brand:#005BAC; --brand-deep:#003B73;
+      --secondary-blue:#00A7B5; --secondary-light:#59C2E6; --accent:#7CC242;
+      --neutral-3:#D9E1EA; --line:var(--neutral-3); --secondary:#25313C;
+      --ease:cubic-bezier(.2,.7,.2,1);
+    }
+    html { scroll-padding-top:88px; }
+    body { background:var(--paper); color:var(--ink); font-family:'DM Sans','Noto Sans TC',sans-serif; line-height:1.75; }
+    ::selection { background:var(--secondary-light); color:var(--ink); }
+    a,button { -webkit-tap-highlight-color:transparent; }
+    button:focus-visible,a:focus-visible { outline:3px solid var(--secondary-light); outline-offset:4px; }
+    .wrap { width:min(1180px,calc(100% - 48px)); margin-inline:auto; }
+    .serif-free { letter-spacing:-.045em; }
+    .eyebrow { font-size:11px; font-weight:700; letter-spacing:.21em; text-transform:uppercase; color:var(--brand); }
+    .muted { color:var(--secondary); }
+    .hairline { border-color:var(--line); }
+    .section-space { padding-block:112px; }
+    .section-title { font-size:clamp(2rem,4.6vw,3.6rem); line-height:1.25; letter-spacing:-.045em; font-weight:700; }
+    .section-head { display:grid; grid-template-columns:1fr 1fr; gap:45px; align-items:end; margin-bottom:48px; }
+    .section-head p:last-child { max-width:435px; justify-self:end; font-size:15px; }
+    .wordmark { font-weight:800; letter-spacing:-.08em; font-size:25px; line-height:1; }
+    .wordmark i { display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--brand); margin-left:3px; }
+    #site-header { background:rgba(255,255,255,.9); backdrop-filter:blur(18px); transition:box-shadow .3s,border-color .3s; }
+    #site-header.scrolled { box-shadow:0 8px 30px rgba(0,59,115,.08); }
+    .nav-link { position:relative; font-size:12px; color:var(--secondary); transition:color .2s; white-space:nowrap; }
+    .nav-link:hover,.nav-link.active { color:var(--ink); }
+    .nav-link:after { content:""; height:1px; background:var(--brand); left:0; bottom:-7px; right:100%; position:absolute; transition:right .25s var(--ease); }
+    .nav-link:hover:after,.nav-link.active:after { right:0; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:12px; border-radius:8px; padding:13px 19px; font-size:13px; font-weight:700; transition:transform .28s var(--ease),background .25s,border-color .25s,box-shadow .25s,color .25s; min-height:48px; }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-primary { background:var(--brand-deep); color:white; border:1px solid var(--brand-deep); }
+    .btn-primary:hover { background:var(--brand); border-color:var(--brand); }
+    .btn-outline { color:var(--ink); border:1px solid var(--neutral-3); background:transparent; }
+    .btn-outline:hover { background:var(--paper); border-color:var(--brand); }
+    .btn svg { transition:transform .25s; }
+    .btn:hover svg { transform:translateX(4px); }
+    .btn-contact { background:var(--accent); border:1px solid var(--accent); color:var(--brand-deep); position:relative; }
+    .btn-contact:hover { transform:none; background:var(--brand); border-color:var(--brand); color:white; box-shadow:0 0 0 5px rgba(0,91,172,.2); }
+    /* 首頁：使用排版與留白表現科技感，而非粒子與霓虹特效 */
+    .hero { padding-top:85px; padding-bottom:100px; min-height:710px; display:flex; align-items:center; position:relative; overflow:hidden; }
+    .hero:before { content:""; position:absolute; inset:auto -25vw -370px auto; width:760px; height:760px; border:1px solid var(--neutral-3); border-radius:50%; pointer-events:none; }
+    .hero-grid { display:grid; grid-template-columns:minmax(0,1.38fr) minmax(310px,.75fr); gap:70px; align-items:center; }
+    .hero-title { font-size:clamp(2.45rem,5.15vw,4.65rem); font-weight:800; line-height:1.36; letter-spacing:-.065em; }
+    .hero-title .accent { color:var(--brand); }
+    .hero-intro { font-size:15px; color:var(--secondary); max-width:620px; line-height:1.95; }
+    .hero-marker { width:42px; height:1px; background:var(--brand); display:inline-block; margin-right:12px; vertical-align:middle; }
+    .editorial-panel { background:var(--fog); border:1px solid var(--line); border-radius:4px; padding:32px; min-height:440px; position:relative; box-shadow:24px 24px 0 var(--neutral-3); }
+    .panel-corner { position:absolute; width:18px; height:18px; border-top:1px solid var(--brand); border-left:1px solid var(--brand); top:16px; left:16px; }
+    .work-line { position:absolute; width:1px; background:linear-gradient(var(--secondary-light),var(--brand),var(--neutral-3)); top:130px; bottom:82px; left:57px; }
+    .work-step { display:grid; grid-template-columns:36px 1fr; gap:17px; position:relative; margin-top:27px; }
+    .work-num { width:32px; height:32px; display:grid; place-items:center; background:var(--paper); border:1px solid var(--neutral-3); border-radius:50%; z-index:1; font-size:11px; color:var(--brand); font-weight:700; }
+    .ticker { border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .ticker-grid { display:grid; grid-template-columns:repeat(4,1fr); }
+    .ticker-grid>div { padding:24px 17px; font-size:11px; font-weight:700; color:var(--secondary); letter-spacing:.11em; text-align:center; border-right:1px solid var(--line); }
+    .ticker-grid>div:last-child { border:0; }
+    .intro-grid { display:grid; grid-template-columns:1.0fr 1.05fr; gap:82px; align-items:start; }
+    .story-line { border-left:2px solid var(--secondary-light); padding-left:24px; margin-top:26px; }
+    .about-row { padding:22px 0; border-top:1px solid var(--line); display:grid; grid-template-columns:46px 1fr; gap:16px; }
+    .about-row:last-child { border-bottom:1px solid var(--line); }
+    .number-label { font-size:11px; font-weight:700; color:var(--brand); padding-top:5px; }
+    .expertise-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+    .expertise-card { background:white; border:1px solid var(--line); border-radius:8px; padding:34px; transition:transform .3s var(--ease),border-color .3s,box-shadow .3s; }
+    .expertise-card:hover { transform:translateY(-4px); border-color:var(--secondary-light); box-shadow:0 18px 35px rgba(0,59,115,.10); }
+    .expertise-top { display:flex; justify-content:space-between; align-items:start; margin-bottom:50px; }
+    .expertise-index { font-size:12px; color:var(--brand); font-weight:700; }
+    .expertise-icon { width:40px; height:40px; border:1px solid var(--neutral-3); border-radius:50%; display:grid; place-items:center; color:var(--brand); font-size:17px; }
+    .tiny-chip { display:inline-block; font-size:11px; padding:5px 10px; border:1px solid var(--neutral-3); background:var(--fog); color:var(--brand-deep); border-radius:99px; }
+    .experience-box { border-top:1px solid var(--neutral-3); display:grid; grid-template-columns:1fr 2fr; gap:70px; padding-top:30px; }
+    .dotlist li { position:relative; padding-left:18px; margin-top:12px; }
+    .dotlist li:before { content:""; position:absolute; top:11px; left:2px; width:5px; height:5px; border-radius:50%; background:var(--brand); }
+    .work-chip { border:1px solid var(--secondary-light); color:var(--brand-deep); background:var(--fog); padding:6px 12px; border-radius:50px; font-size:11px; font-weight:600; }
+    .filter { font-size:13px; border:1px solid var(--line); padding:8px 15px; border-radius:99px; color:var(--secondary); transition:all .2s; }
+    .filter:hover,.filter[aria-pressed="true"] { background:var(--ink); border-color:var(--ink); color:#fff; }
+    .projects-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+    .project-card { border-bottom:1px solid var(--neutral-3); padding-bottom:24px; }
+    .project-card.feature { grid-column:1/-1; display:grid; grid-template-columns:1.05fr .95fr; border:1px solid var(--line); padding:0; border-radius:8px; overflow:hidden; background:white; }
+    .cover { position:relative; overflow:hidden; min-height:265px; display:flex; align-items:center; justify-content:center; isolation:isolate; }
+    .cover:before { content:""; position:absolute; inset:0; opacity:.55; background-image:linear-gradient(to right,transparent 98%,rgba(0,59,115,.11) 98%),linear-gradient(to bottom,transparent 98%,rgba(0,59,115,.11) 98%); background-size:42px 42px; z-index:-1; }
+    .cover-flight { background:var(--fog); }
+    .cover-phish,.cover-diary { background:var(--fog); }
+    .cover .ghost-number { position:absolute; font-size:180px; color:rgba(0,91,172,.08); font-weight:800; line-height:1; bottom:-36px; right:10px; letter-spacing:-.1em; }
+    .project-card:not(.feature) .cover { border-radius:8px; min-height:275px; }
+    .project-card:not(.feature) .project-copy { padding-top:22px; }
+    .project-card.feature .project-copy { padding:42px; align-self:center; }
+    .project-card:hover .project-art { transform:translateY(-5px) scale(1.025); }
+    .project-art { transition:transform .5s var(--ease); }
+    .project-title { letter-spacing:-.035em; line-height:1.4; }
+    .project-status { font-size:11px; font-weight:600; color:var(--brand-deep); padding:5px 9px; border:1px solid var(--neutral-3); border-radius:40px; }
+    .project-more { display:inline-flex; align-items:center; gap:9px; color:var(--brand); font-size:13px; font-weight:700; margin-top:19px; }
+    .project-more .arr { transition:transform .2s; }
+    .project-more:hover .arr { transform:translateX(5px); }
+    .education-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .edu-card { padding:35px; border:1px solid var(--line); background:var(--paper); border-radius:7px; min-height:268px; }
+    .insight-card { background:var(--fog); border:1px solid var(--neutral-3); border-radius:8px; padding:40px; display:grid; grid-template-columns:1.1fr 1fr; gap:35px; align-items:center; }
+    .contact-section { background:var(--brand-deep); color:white; }
+    .contact-title { font-size:clamp(2.1rem,4.4vw,4rem); letter-spacing:-.055em; line-height:1.35; font-weight:700; }
+    .contact-email { color:var(--secondary-light); text-decoration:underline; text-decoration-color:var(--secondary-blue); text-underline-offset:7px; word-break:break-word; }
+    .contact-email:hover { color:white; }
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s var(--ease),transform .7s var(--ease); }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    dialog { color:var(--ink); width:min(620px,calc(100% - 32px)); max-height:min(85vh,850px); border:1px solid var(--line); border-radius:12px; padding:0; box-shadow:0 35px 120px rgba(37,49,60,.2); }
+    dialog::backdrop { background:rgba(37,49,60,.54); backdrop-filter:blur(4px); }
+    dialog .modal-content { box-sizing:border-box; max-height:min(85vh,850px); padding:34px; overflow:auto; }
+    #mobile-menu { display:none; }
+    @media (max-width:1000px) {
+      .nav-desktop { display:none!important; }
+      .menu-toggle { display:flex!important; }
+      #mobile-menu.open { display:block; }
+      .hero-grid { gap:28px; }
+      .hero-title { font-size:clamp(2.1rem,5.3vw,3.8rem); }
+    }
+    @media (max-width:800px) {
+      .wrap { width:min(100% - 34px,1180px); }
+      .section-space { padding-block:75px; }
+      .section-head { grid-template-columns:1fr; gap:15px; margin-bottom:32px; }
+      .section-head p:last-child { justify-self:start; }
+      .hero { min-height:auto; padding:75px 0 95px; }
+      .hero-grid,.intro-grid,.experience-box,.insight-card { grid-template-columns:1fr; gap:32px; }
+      .editorial-panel { min-height:360px; max-width:550px; box-shadow:12px 12px 0 var(--neutral-3); }
+      .ticker-grid { grid-template-columns:repeat(2,1fr); }
+      .ticker-grid>div:nth-child(2) { border:0; }
+      .ticker-grid>div:nth-child(-n+2) { border-bottom:1px solid var(--line); }
+      .project-card.feature { grid-template-columns:1fr; }
+      .project-card.feature .project-copy { padding:25px; }
+      .education-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:600px) {
+      .hero-title { font-size:clamp(2rem,9vw,3rem); line-height:1.45; }
+      .expertise-grid,.projects-grid { grid-template-columns:1fr; }
+      .project-card.feature { grid-column:auto; }
+      .expertise-card { padding:25px; }
+      .expertise-top { margin-bottom:28px; }
+      .cover { min-height:235px; }
+      .project-card:not(.feature) .cover { min-height:230px; }
+      .section-title { font-size:2rem; }
+      .contact-section .wrap { padding-block:70px; }
+      .hero .buttons { flex-direction:column; align-items:stretch; }
+      .hero .buttons .btn { width:100%; }
+      .edu-card,.insight-card { padding:24px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto!important; }
+      *,*:before,*:after { animation-duration:.01ms!important; transition-duration:.01ms!important; }
+      .reveal { opacity:1; transform:none; }
+    }
+    @media print {
+      @page { size:A4; margin:15mm; }
+      html,body { background:var(--paper)!important; color:var(--ink)!important; font-size:10pt; }
+      .no-print,#site-header,.ticker,footer,.project-more,dialog,.hero-decor { display:none!important; }
+      .section-space { padding:22px 0; }
+      .hero { min-height:0; padding:25px 0; }
+      .hero-grid,.intro-grid,.experience-box,.expertise-grid,.education-grid,.projects-grid,.project-card.feature { display:block; }
+      .editorial-panel,.cover { display:none!important; }
+      .wrap { width:100%; }
+      .hero-title { font-size:23pt; }
+      .section-title { font-size:19pt; }
+      .expertise-card,.project-card,.edu-card { break-inside:avoid; box-shadow:none!important; margin-bottom:12px; }
+      .project-card.feature .project-copy,.project-copy { padding:12px!important; }
+      .reveal { opacity:1!important; transform:none!important; }
+      .contact-section { background:var(--paper)!important; color:var(--ink)!important; }
+      .contact-email { color:var(--ink)!important; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[999] focus:bg-white focus:p-3">跳至主要內容</a>
+
+  <header id="site-header" class="sticky top-0 z-50 border-b hairline">
+    <div class="wrap h-[76px] flex items-center justify-between gap-5">
+      <a href="#top" class="wordmark" aria-label="Gene，返回首頁">GENE<i></i></a>
+      <nav class="nav-desktop flex items-center gap-6" aria-label="主要導覽">
+        <a class="nav-link" href="#about">關於我</a>
+        <a class="nav-link" href="#expertise">核心能力</a>
+        <a class="nav-link" href="#experience">工作經驗</a>
+        <a class="nav-link" href="#projects">精選作品</a>
+        <a class="nav-link" href="#education">學歷培訓</a>
+        <a class="nav-link" href="#insights">探索筆記</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a class="nav-desktop btn btn-outline !min-h-[40px] !py-2 !px-4" href="#contact">聯絡我 <span aria-hidden="true">↗</span></a>
+        <button id="menu-toggle" type="button" class="menu-toggle hidden p-2 border hairline rounded-md" aria-expanded="false" aria-controls="mobile-menu" aria-label="開啟選單">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="border-t hairline bg-paper" aria-label="手機導覽">
+      <div class="wrap py-3 flex flex-col gap-0">
+        <a class="py-3 border-b hairline" href="#about">關於我</a>
+        <a class="py-3 border-b hairline" href="#expertise">核心能力</a>
+        <a class="py-3 border-b hairline" href="#experience">工作經驗</a>
+        <a class="py-3 border-b hairline" href="#projects">精選作品</a>
+        <a class="py-3 border-b hairline" href="#education">學歷培訓</a>
+        <a class="py-3 border-b hairline" href="#insights">探索筆記</a>
+        <a class="py-3" href="#contact">聯絡我</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- 01 首頁：文字由 PORTFOLIO_DATA.profile 控制 -->
+    <section id="top" class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow mb-7"><span class="hero-marker"></span>PERSONAL PORTFOLIO / GENE</div>
+          <p id="hero-role" class="uppercase text-[12px] font-semibold tracking-[.15em] text-brand-deep mb-5"></p>
+          <h1 id="hero-title" class="hero-title serif-free"></h1>
+          <p id="hero-summary" class="hero-intro mt-7"></p>
+          <div class="buttons flex flex-wrap gap-3 mt-8 no-print">
+            <a class="btn btn-primary" href="#projects">探索我的作品 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a>
+            <a class="btn btn-contact" href="#contact">與我聯繫 <span aria-hidden="true">↗</span></a>
+          </div>
+          <div id="hero-tags" class="flex flex-wrap gap-2 mt-10"></div>
+        </div>
+        <aside class="editorial-panel reveal" aria-label="我的產品工作方法">
+          <span class="panel-corner" aria-hidden="true"></span>
+          <div class="flex justify-between items-center text-[10px] tracking-[.2em] font-bold text-brand-deep uppercase"><span>THE WAY I BUILD</span><span>01 — 03</span></div>
+          <h2 class="text-[28px] font-bold leading-[1.35] mt-8 tracking-[-.04em]">從問題開始。<br>以產品回答。</h2>
+          <div class="work-line" aria-hidden="true"></div>
+          <div class="mt-8">
+            <div class="work-step"><span class="work-num">01</span><div><h3 class="font-bold text-[14px]">Understand</h3><p class="text-[12px] muted mt-1">理解使用者需求與商業情境</p></div></div>
+            <div class="work-step"><span class="work-num">02</span><div><h3 class="font-bold text-[14px]">Build with AI</h3><p class="text-[12px] muted mt-1">以 Vibe Coding 快速建立原型</p></div></div>
+            <div class="work-step"><span class="work-num">03</span><div><h3 class="font-bold text-[14px]">Test & Refine</h3><p class="text-[12px] muted mt-1">持續測試、改善體驗與風險</p></div></div>
+          </div>
+          <div class="absolute bottom-6 right-8 text-[10px] tracking-[.2em] text-brand-deep">BUSINESS × AI × PRODUCT</div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="專業方向">
+      <div class="wrap ticker-grid"><div>BUSINESS THINKING</div><div>VIBE CODING</div><div>PRODUCT BUILDING</div><div>SECURITY AWARENESS</div></div>
+    </div>
+
+    <!-- 02 關於我：以四個提問與轉型歷程呈現，不長篇堆字 -->
+    <section id="about" class="section-space">
+      <div class="wrap intro-grid">
+        <div class="reveal">
+          <p class="eyebrow mb-5">01 / ABOUT ME</p>
+          <h2 class="section-title">從理解商業，<br><span class="text-brand">到打造解決方案。</span></h2>
+          <div class="story-line"><p id="about-lead" class="text-[15px] leading-[2] muted"></p></div>
+          <div class="mt-10 border-t hairline pt-5"><p class="eyebrow !text-brand-deep mb-4">MY JOURNEY</p><div class="text-sm font-semibold leading-8">Business Foundation <span class="text-brand mx-2">→</span> Process Improvement <span class="text-brand mx-2">→</span> AI Product Building</div></div>
+        </div>
+        <div id="about-list" class="reveal"></div>
+      </div>
+    </section>
+
+    <!-- 03 核心能力 -->
+    <section id="expertise" class="section-space bg-fog border-y hairline">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="eyebrow mb-5">02 / EXPERTISE</p><h2 class="section-title">不只使用工具，<br>更重視解決問題。</h2></div><p class="muted">以商業理解為核心，連結 AI 協作開發、流程改善與資訊安全風險思維，探索能落地的產品解決方案。</p></div>
+        <div id="expertise-list" class="expertise-grid"></div>
+      </div>
+    </section>
+
+    <!-- 04 工作經驗 -->
+    <section id="experience" class="section-space">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="eyebrow mb-5">03 / EXPERIENCE</p><h2 class="section-title">實際工作，<br>真實問題。</h2></div><p class="muted">從市場調查、專案執行到數位流程改善。</p></div>
+        <div id="experience-list"></div>
+      </div>
+    </section>
+
+    <!-- 05 精選作品：第一張為主打、其餘保持真實開發狀態 -->
+    <section id="projects" class="section-space bg-fog border-y hairline">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="eyebrow mb-5">04 / SELECTED WORK</p><h2 class="section-title">從想法到原型，<br><span class="text-brand">讓作品說話。</span></h2></div><p class="muted">每一個專案都從明確的使用情境出發。開發中的作品會清楚標示狀態，不將研究構想描述為已上線產品。</p></div>
+        <div id="project-filters" class="flex flex-wrap gap-2 mb-8 reveal" aria-label="篩選作品類別"></div>
+        <div id="projects-list" class="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- 06 學歷與培訓 -->
+    <section id="education" class="section-space">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="eyebrow mb-5">05 / EDUCATION</p><h2 class="section-title">商業底蘊，<br>跨域學習。</h2></div><p class="muted">企業管理與財務金融的學科基礎，搭配資訊安全相關培訓，逐步建立更全面的產品與風險認知。</p></div>
+        <div id="education-list" class="education-grid"></div>
+      </div>
+    </section>
+
+    <!-- 07 探索筆記：目前僅展示分類，不虛構文章 -->
+    <section id="insights" class="section-space bg-fog border-t hairline">
+      <div class="wrap">
+        <div class="insight-card reveal">
+          <div><p class="eyebrow mb-5">06 / LEARNING NOTES</p><h2 class="section-title">持續探索，<br>持續記錄。</h2><p class="muted mt-5 text-[14px]">我希望保留每次專案實作、需求分析與風險思考的學習脈絡。文章整理中，未來將陸續分享。</p></div>
+          <div><div class="text-[11px] font-bold uppercase tracking-[.18em] muted mb-5">PLANNED TOPICS / 即將更新</div><div id="insight-topics" class="flex flex-wrap gap-2"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 聯絡與履歷：實際可用的 mailto、列印/存為 PDF -->
+    <section id="contact" class="contact-section">
+      <div class="wrap py-[105px]">
+        <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-12 items-end">
+          <div class="reveal"><p class="eyebrow !text-secondary-light mb-7">07 / LET'S CONNECT</p><h2 class="contact-title">一起探索 AI 與商業的<br><span class="text-secondary-light">更多可能。</span></h2><p class="mt-7 text-[14px] text-neutral-2 max-w-[570px] leading-[2]">歡迎對行銷科技、數位金融、AI 應用與產品創新有興趣的企業及團隊聯繫交流。</p></div>
+          <div class="reveal lg:justify-self-end w-full lg:max-w-[380px]">
+            <p class="text-[11px] tracking-[.2em] text-secondary-light font-semibold mb-4">EMAIL</p>
+            <a id="contact-email" class="contact-email text-[clamp(1.25rem,3vw,1.8rem)] font-semibold" href="#"></a>
+            <div class="flex flex-wrap gap-3 mt-7 no-print">
+              <a id="contact-cta" class="btn btn-contact" href="#">寄信聯絡 <span aria-hidden="true">↗</span></a>
+              <button id="print-resume" type="button" class="btn !border !border-secondary-light !text-white hover:!bg-brand">列印 / 儲存為 PDF <span aria-hidden="true">↗</span></button>
+            </div>
+            <p class="text-[11px] text-neutral-2 mt-4 no-print">可在列印視窗選擇「另存為 PDF」。正式 PDF 履歷可於日後另行加入。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-paper border-t hairline">
+    <div class="wrap py-7 flex flex-col sm:flex-row justify-between gap-3 text-[11px] text-brand-deep"><span>© <span id="year"></span> GENE. PERSONAL PORTFOLIO.</span><span>Made with intention, not noise. · HTML / Tailwind CSS / JavaScript</span></div>
+  </footer>
+
+  <!-- 作品詳細視窗：ESC 可關閉，未公開的作品不會顯示假資料 -->
+  <dialog id="project-dialog" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <div class="flex justify-between items-start gap-3"><p id="modal-category" class="eyebrow"></p><button id="modal-close" type="button" class="text-[13px] text-brand-deep border hairline rounded-md px-3 py-1.5" aria-label="關閉專案詳情">關閉 ✕</button></div>
+      <h3 id="modal-title" class="text-[clamp(1.5rem,3vw,2.15rem)] font-bold tracking-[-.04em] leading-[1.4] mt-6"></h3>
+      <p id="modal-status" class="text-[12px] text-brand-deep mt-2"></p>
+      <p id="modal-tagline" class="text-[15px] font-bold text-brand mt-2" hidden></p>
+      <div id="modal-showcase"></div>
+      <div id="modal-details" class="space-y-5 mt-8"></div>
+      <div id="modal-links" class="flex flex-wrap gap-3 mt-8"></div>
+    </div>
+  </dialog>
+
+  <script>
+    /* ══════════════════════════════════════════════════════════════════════════
+       內容資料區｜從這裡開始修改自己的履歷，不需要去更動前面的排版 HTML
+       1) profile：姓名、首頁標語、聯絡簡介
+       2) about：四個品牌定位問題
+       3) expertise：核心能力卡片
+       4) experiences：工作經驗，新增一個 {} 就多一筆
+       5) projects：作品集，修改狀態、說明、Demo 與 GitHub 連結
+       6) education：學歷與培訓
+       7) insights：未來文章主題（現階段不虛構文章）
+       8) contact：公開信箱
+       ══════════════════════════════════════════════════════════════════════════ */
+    const PORTFOLIO_DATA = {
+      profile: {
+        name: 'Gene',
+        role: 'MARTECH · AI PRODUCT · DIGITAL BUSINESS',
+        headlineLines: [
+          '以商業思維洞察需求，',
+          '結合 AI 創新與 Vibe Coding，',
+          '將問題轉化為可落地的數位產品與商業價值。'
+        ],
+        summary: '國立臺灣科技大學企業管理系、雙主修財務金融。從市場調查與工作流程改善出發，透過 AI 協作開發、產品原型實作與資訊安全思維，持續探索科技如何創造真正的商業價值。',
+        tags: ['Business Thinking', 'Vibe Coding', 'AI Product Building', 'Security Awareness']
+      },
+      about: {
+        lead: '我相信好的產品不應只展示技術，更應回答一個真實存在的問題。從市場調查專案執行，到利用數位工具改善作業流程，再到以 Vibe Coding 建立可操作的產品原型，我持續學習如何把商業理解轉化為實際成果。',
+        points: [
+          { title:'我是誰', en:'WHO I AM', text:'畢業於臺灣科技大學企管系，雙主修財務金融，曾擔任市場調查執行督導，具備專案、人員及資料流程管理經驗。' },
+          { title:'希望加入的團隊', en:'WHERE I FIT', text:'關注 MarTech 行銷科技、數位金融、AI 產品企劃與數位轉型；期待參與重視創新、使用者體驗與技術落地的團隊。' },
+          { title:'我關心的問題', en:'PROBLEMS I CARE ABOUT', text:'人工處理重複、資訊分散、流程複雜，卻缺乏易用的解決方案。我希望透過需求分析與 AI 協作，將想法轉換為可以測試的產品。' },
+          { title:'我的差異化', en:'WHY THIS PERSPECTIVE', text:'跨越商業理解、流程設計、Vibe Coding 與資安意識，不將單一技術當成終點，而是重視使用者價值、驗證及持續改善。' }
+        ]
+      },
+      expertise: [
+        { id:'01', symbol:'↗', en:'AI-ASSISTED PRODUCT BUILDING', title:'AI 協作開發與 Vibe Coding', text:'從使用者需求、功能拆解、提示詞設計到原型開發與測試，運用 AI 協作工具探索 Chatbot、智慧問答與網頁應用等實際情境。', tags:['ChatGPT','Claude','Codex','需求拆解','原型測試'] },
+        { id:'02', symbol:'◎', en:'BUSINESS & PROCESS', title:'商業分析與流程改善', text:'以市場調查及專案執行經驗，辨識流程瓶頸，利用數位表單、試算表及自動化概念改善資料蒐集與管理方式。', tags:['市場研究','專案協調','Google Sheets','Google Forms','流程改善'] },
+        { id:'03', symbol:'↘', en:'FINTECH & PRODUCT THINKING', title:'AI 與數位金融創新', text:'透過航班延誤保險專題，探索氣象與航班資訊、風險辨識、差異化保費及參數型保險自動理賠的產品概念。', tags:['InsurTech','需求分析','風險分級','產品原型'] },
+        { id:'04', symbol:'⌁', en:'CYBERSECURITY AWARENESS', title:'資訊安全與風險意識', text:'持續學習釣魚攻擊、應用程式安全、資安風險管理及安全監控等知識，以安全性及可解釋性視角思考產品設計。', tags:['OWASP','NIST 概念','零信任概念','釣魚風險'] }
+      ],
+      experiences: [
+        { company:'益普索市場研究公司', role:'市場調查督導', period:'2021/11~2021/05', intro:'從調查現場、人員協調到資料管理，參與專案執行與改善，逐步累積對使用者、流程與資訊管理的理解。',
+          responsibilities:['執行市場調查專案，協調工作進度、訪員與現場問題。','參與人員招募、工作安排及相關行政流程。','整理調查資料並協助資料品質管控。','透過 Google 表單與試算表將部分傳統紙本流程數位化。'],
+          outcomes:['嘗試減少重複性人工填報與資料整理工作。','提出以 ID 查詢系統改善資訊查找的構想。'],
+          tags:['市場調查','專案執行','人員協調','Google Forms','Google Sheets'] }
+      ],
+      projects: [
+        { id:'flight', title:'這趟我罩你｜AI 航班延誤保險系統', tagline:'AI 讓保費因人而異，合約讓理賠不因人而異', en:'AI × Parametric Travel Insurance', filter:'ai', category:'AI × InsurTech', status:'互動式 Demo', cover:'flight', featured:true,
+          summary:'結合 AI 風險評估與智能合約的旅遊保險 Demo：依旅客行程評估風險、計算動態保費並推薦方案；返台航班延誤達 240 分鐘，合約自動判定理賠。',
+          details:[
+            {label:'專案概念與角色',paragraphs:[
+              '這是一個結合 AI 風險評估與智能合約的旅遊保險 Demo 系統。我從「班機延誤後還要自己準備文件申請理賠，很麻煩」的經驗出發，構想參數型保險：返台航班實際抵達時間比表定晚 240 分鐘以上，就由智能合約自動判定理賠，旅客不用申請。系統也會依旅客行程評估風險、計算動態保費並推薦方案。',
+              '專案由我提出概念、設計理賠規則與風險控管原則，並持續驗證結果、調整方向，與 Codex 和 Claude Code 協作開發。過程中我學到如何把保險與 AI 的理論概念轉成實際功能，並理解資料、機器學習模型、AI Agent 與區塊鏈合約之間的分工與資料流。'
+            ]},
+            {label:'功能展示',points:[
+              {label:'行程評估與動態保費',body:'依目的地、年齡、旅遊天數、活動、預算與返程航班評估風險，分項計算示範保費，並依預算排序推薦方案。'},
+              {label:'航班延誤風險',body:'用 14 個月的真實美國飛台灣航班資料，估算返台航班延誤 2／3／4 小時的機率，並分成低、中、高風險。歷史資料不足的航線不報價。'},
+              {label:'免申請自動理賠',body:'投保後，系統取得航班實際抵達的證據，交給智能合約判定是否達到 240 分鐘門檻；另有「時間快轉」Demo，可以直接展示理賠觸發的過程。'},
+              {label:'AI 顧問與技能包',body:'RAG 顧問先檢索條款與資料再回答，查不到就拒答；顧問會依問題選用不同技能，例如報價、航班推薦、保單查詢、條款問答。'},
+              {label:'賠付率回測',body:'用歷史資料模擬販售，檢查保費是否足以支付理賠，並觀察颱風等極端事件造成的理賠集中。'}
+            ]},
+            {label:'技術與架構',paragraphs:[
+              '介面用 Streamlit 做成多頁操作系統，另外提供可以直接開啟的 HTML 靜態前端，方便測試。後端用 Python 處理資料與計價，以 SQLite 儲存保單、交易與稽核紀錄；理賠合約用 Solidity 撰寫，在 Hardhat 本機以太坊環境執行與測試。'
+            ],points:[
+              {label:'售前資料流程',body:'只使用起飛前 24 小時已知的資訊，包括航空公司與航線的歷史延誤率、天氣、颱風警報和假期，進行風險評估與保費計算。'},
+              {label:'售後理賠流程',body:'航班抵達後，兩個獨立來源的抵達時間送進合約，由合約依固定規則判定理賠。'},
+              {label:'AI 職責邊界',body:'AI 只負責售前的風險評估與推薦，不參與理賠決定。'}
+            ]},
+            {label:'資料可信度與風險控管',paragraphs:[
+              '開發過程中，我特別檢查資料真實性、模型是否會「偷看未來」，以及理賠機制是否可能被操控。'
+            ],points:[
+              {label:'資料來源核對',body:'航班資料來自交通部 TDX 官方歷史資料，一年資料分 56 段下載，每段都核對筆數與檔案雜湊；天氣資料來自 IEM 歷史氣象資料庫。'},
+              {label:'防止資料洩漏',body:'所有特徵只能使用起飛前 24 小時已知的資料。模型資料不足時如實判定 NO-GO，Demo 保費改用規則式定價，不包裝成 AI 預測。'},
+              {label:'Oracle 防操控',body:'合約要求兩個不同來源的證據；來源差距太大、證據過期、重複提交或被竄改時，會拒絕或轉人工覆核。'},
+              {label:'AI 權限邊界',body:'每個 AI 技能只能呼叫指定工具；含身分證、卡號等個資的訊息不會被處理，所有工具呼叫都寫入稽核紀錄。'},
+              {label:'回測後的調整',body:'回測發現兩個颱風日就占了 31% 的理賠，因此加入「颱風警報期間停售」規則，賠付率從 24.5% 降到 18%。'}
+            ]}
+          ], githubUrl:'', demoUrl:'' },
+        { id:'phishing', title:'AI 反釣魚郵件偵測系統', en:'Financial Email & URL Phishing Protection', filter:'security', category:'AI × Cybersecurity', status:'模型訓練與驗證', cover:'phish', featured:false,
+          summary:'協助使用者檢查可疑金融郵件和網址，評估風險高、中、低，並用白話說明判斷原因。',
+          details:[
+            {label:'專案介紹',body:'這是一個幫忙檢查可疑郵件和網址的網站。它會告訴使用者風險高、中或低，並用白話說明原因。'},
+            {label:'模型訓練與驗證',points:[
+              {label:'用真實資料測試',body:'模型用自己的資料測試是滿分，但換成真實郵件只答對約 6 成，所以我不拿滿分當成果。經過調整後，成績提升到約 8 成。'},
+              {label:'抓出資料的問題',body:'發現某個公開資料集的「正常網址」格式都一樣，模型是靠格式猜答案，不是真的會判斷，所以改掉了這個做法。'},
+              {label:'改用台灣資料',body:'用警政署 165 公布的詐騙網址重新訓練，準確度從約 5 成提升到約 8.6 成。'},
+              {label:'用數據決定取捨',body:'試過其他訓練方式和更大的模型（BERT），測試後發現沒有比較好，就決定不採用。'}
+            ]}
+          ], githubUrl:'', demoUrl:'' },
+        { id:'diary', title:'小鴨寶寶日記｜育兒紀錄網站', en:'Baby Care Journal Website', filter:'web', category:'育兒紀錄網站', status:'Demo 已部署', cover:'diary', featured:false,
+          summary:'從實際育兒需求出發，規劃喝奶、睡眠、排便與吃飯紀錄，並結合統計圖表、生長曲線及育兒資訊，協助照顧者回顧寶寶日常變化。',
+          showcaseImage:'小鴨寶寶日記_介面展示.png',
+          showcaseImageAlt:'登入後的小鴨寶寶日記首頁，展示喝奶、睡覺、便便與吃飯的紀錄入口，以及最近一次紀錄和提醒。',
+          details:[
+            {label:'專案介紹',paragraphs:[
+              '「小鴨寶寶日記」是一個協助照顧者記錄寶寶生活的響應式網站。我從實際育兒需求出發，規劃喝奶、睡眠、排便與吃飯紀錄，並透過統計圖表、生長曲線和育兒資訊，讓照顧者更容易回顧日常變化。',
+              '專案由我提出需求並持續回饋調整，與 Codex 協作開發。我在過程中學習如何將使用需求轉換為網站功能，並理解前端、雲端資料庫與帳號權限之間的資料流。'
+            ]},
+            {label:'功能展示',points:[
+              {label:'日常紀錄',body:'記錄喝奶、睡眠、排便與吃飯時間，並查看歷史紀錄。'},
+              {label:'統計與提醒',body:'以每日摘要與近七日圖表整理紀錄，並依歷史間隔提供參考時間。'},
+              {label:'生長曲線',body:'將身高、體重量測資料與 WHO 兒童生長參考曲線對照。曲線供觀察參考，不能作為醫療診斷。'},
+              {label:'資料管理',body:'提供 CSV 匯出，以及 JSON 備份與還原功能。'}
+            ]},
+            {label:'技術與架構',paragraphs:[
+              '前端使用 HTML、CSS 與 JavaScript 製作操作介面，並考量手機與電腦的畫面配置。網站透過 Firebase Hosting 部署，使用 Firebase Authentication 處理帳號登入，並以 Cloud Firestore 儲存紀錄。',
+              '使用者輸入資料後，前端先檢查格式，再以登入身分向 Firestore 讀寫資料；網站也會依紀錄重新計算統計摘要。專案使用 Firebase 提供的身分驗證與資料服務，沒有另建應用伺服器。'
+            ]},
+            {label:'資安與帳號權限',points:[
+              {label:'帳號隔離',body:'Firestore 規則限制指定帳號只能讀寫對應的資料文件，並檢查寫入欄位與版本。'},
+              {label:'避免資料覆蓋',body:'儲存時使用版本號與交易比對；若其他裝置已先更新，系統會拒絕本次寫入並提示重新整理。'},
+              {label:'瀏覽器安全設定',body:'Firebase Hosting 設定內容安全政策（CSP）、禁止網頁被嵌入等安全標頭。'},
+              {label:'資料備份',body:'除了手動下載 JSON，也準備了分帳號自動備份腳本；排程是否持續運作及還原演練結果仍需確認。'}
+            ],paragraphs:['開發過程曾針對帳號隔離、資料驗證與儲存情境進行檢查。']},
+            {label:'網站 Demo',body:'網站採授權帳號登入，公開訪客可能只能看到登入頁；面試展示時可搭配介面截圖說明操作流程。'}
+          ], githubUrl:'', demoUrl:'https://little-duck-baby-journal.web.app/' }
+      ],
+      education: [
+        {kind:'ACADEMIC BACKGROUND', school:'國立臺灣科技大學', title:'企業管理系｜雙主修財務金融', period:'2021.06', description:'建立企業管理、財金及市場研究的跨領域基礎。大學期間曾參與學生會、系學會與社團公關企劃相關工作。', tags:['企業管理','財務金融','企劃與溝通']},
+        {kind:'PROFESSIONAL TRAINING', school:'國立臺北科技大學', title:'經濟部AI新秀計畫｜AI產業應用與資安治理實務班', period:'2026.09 — 2027.01', description:'接觸資安風險管理、零信任、IPAS 資安工程師初級、行銷科技、FIN Tech 觀念，並以跨域專題探索 AI 應用。', tags:['資安知識','風險意識','跨域專題','FIN Tech','行銷科技']},
+      ],
+      insights: ['Vibe Coding 實作筆記','AI 產品設計與需求分析','資安知識與風險思考','FIN Tech','行銷科技','機器學習與生成式 AI'],
+      contact: { email:'genechen0428@gmail.com' }
+    };
+
+    // ────────────────── 渲染資料 ──────────────────
+    const $ = (selector) => document.querySelector(selector);
+    const esc = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const chips = (arr, css='tiny-chip') => (arr||[]).map(t => `<span class="${css}">${esc(t)}</span>`).join('');
+
+    function renderProfile() {
+      const p=PORTFOLIO_DATA.profile;
+      $('#hero-role').textContent=p.role;
+      $('#hero-title').innerHTML=p.headlineLines.map((line,i)=>`<span class="block ${i===1?'accent':''}">${esc(line)}</span>`).join('');
+      $('#hero-summary').textContent=p.summary;
+      $('#hero-tags').innerHTML=chips(p.tags);
+      document.title=`${p.name}｜AI 產品探索・互動式履歷與作品集`;
+    }
+    function renderAbout() {
+      const a=PORTFOLIO_DATA.about;
+      $('#about-lead').textContent=a.lead;
+      $('#about-list').innerHTML=a.points.map((item,i)=>`<div class="about-row"><span class="number-label">0${i+1}</span><div><div class="flex flex-wrap items-center gap-3 mb-2"><h3 class="font-bold text-[17px]">${esc(item.title)}</h3><span class="text-[10px] font-semibold tracking-wider text-brand-deep">${esc(item.en)}</span></div><p class="text-[13px] leading-[1.95] muted">${esc(item.text)}</p></div></div>`).join('');
+    }
+    function renderExpertise() {
+      $('#expertise-list').innerHTML=PORTFOLIO_DATA.expertise.map(item=>`<article class="expertise-card reveal"><div class="expertise-top"><span class="expertise-index">${esc(item.id)} / EXPERTISE</span><span class="expertise-icon" aria-hidden="true">${esc(item.symbol)}</span></div><p class="text-[10px] tracking-[.15em] font-semibold text-brand-deep mb-2">${esc(item.en)}</p><h3 class="font-bold text-[21px] tracking-[-.03em]">${esc(item.title)}</h3><p class="text-[13px] muted leading-[1.95] mt-4">${esc(item.text)}</p><div class="flex flex-wrap gap-2 mt-7">${chips(item.tags)}</div></article>`).join('');
+    }
+    function renderExperience() {
+      $('#experience-list').innerHTML=PORTFOLIO_DATA.experiences.map(item=>`<article class="experience-box reveal mb-14"><div><p class="eyebrow mb-3">${esc(item.period)}</p><h3 class="text-[27px] font-bold tracking-[-.04em] leading-[1.35]">${esc(item.role)}</h3><p class="muted mt-2 text-[13px]">${esc(item.company)}</p></div><div><p class="text-[15px] leading-[1.95] mb-7">${esc(item.intro)}</p><div class="grid md:grid-cols-2 gap-8"><div><h4 class="font-bold text-[13px]">主要職責</h4><ul class="dotlist text-[13px] muted leading-[1.8]">${item.responsibilities.map(v=>`<li>${esc(v)}</li>`).join('')}</ul></div><div><h4 class="font-bold text-[13px]">工作改善與實作</h4><ul class="dotlist text-[13px] muted leading-[1.8]">${item.outcomes.map(v=>`<li>${esc(v)}</li>`).join('')}</ul></div></div><div class="flex flex-wrap gap-2 mt-7">${chips(item.tags,'work-chip')}</div></div></article>`).join('');
+    }
+    function projectCover(item) {
+      const pict={
+        flight:`<svg class="project-art" width="260" height="178" viewBox="0 0 260 178" fill="none" aria-hidden="true"><circle cx="130" cy="90" r="71" stroke="#59C2E6" stroke-dasharray="3 7"/><circle cx="130" cy="90" r="48" stroke="#D9E1EA"/><path d="M35 130Q119 -7 227 69" stroke="#005BAC" stroke-width="1.6"/><circle cx="35" cy="130" r="4" fill="#00A7B5"/><circle cx="227" cy="69" r="4" fill="#00A7B5"/><path d="m125 82 53-34-14 45-24 4-9 25-10-3 4-33-31-12 7-9 24 17Z" fill="#003B73"/><path d="m121 86 43 7" stroke="#FFFFFF"/><text x="10" y="18" fill="#003B73" font-size="10" letter-spacing="2">TPE / FLIGHT RISK</text><text x="174" y="164" fill="#003B73" font-size="10" letter-spacing="2">INSURTECH</text></svg>`,
+        phish:`<svg class="project-art" width="228" height="165" viewBox="0 0 228 165" fill="none" aria-hidden="true"><rect x="29" y="36" width="170" height="108" rx="8" fill="#FFFFFF" stroke="#D9E1EA"/><path d="m31 52 82 56 85-56" stroke="#00A7B5" stroke-width="1.5"/><path d="M114 8 154 22v36c0 30-16 46-40 59-24-13-40-29-40-59V22L114 8Z" fill="#F5F7FA" stroke="#005BAC" stroke-width="1.5"/><path d="m99 61 11 11 21-24" stroke="#7CC242" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="181" cy="30" r="6" fill="#59C2E6"/></svg>`,
+        diary:`<svg class="project-art" width="228" height="165" viewBox="0 0 228 165" fill="none" aria-hidden="true"><rect x="48" y="18" width="136" height="135" rx="8" fill="#FFFFFF" stroke="#D9E1EA"/><path d="M76 18v135" stroke="#59C2E6"/><circle cx="76" cy="50" r="3" fill="#00A7B5"/><circle cx="76" cy="80" r="3" fill="#00A7B5"/><circle cx="76" cy="110" r="3" fill="#00A7B5"/><circle cx="118" cy="73" r="21" stroke="#005BAC"/><path d="M111 72h2m13 0h2M111 83q9 6 17 0" stroke="#003B73" stroke-width="2" stroke-linecap="round"/><path d="M103 33h59" stroke="#D9E1EA"/><path d="M101 119h60M101 130h46" stroke="#D9E1EA" stroke-width="2"/><circle cx="169" cy="34" r="5" fill="#7CC242"/></svg>`
+      };
+      return `<div class="cover cover-${esc(item.cover)}"><span class="ghost-number" aria-hidden="true">${item.featured?'01':'0'+(item.id==='phishing'?'2':'3')}</span>${pict[item.cover]||''}</div>`;
+    }
+    let currentFilter='all';
+    const filters=[{id:'all',label:'全部作品'},{id:'ai',label:'AI / InsurTech'},{id:'security',label:'資訊安全'},{id:'web',label:'網頁應用'}];
+    function renderFilters() {
+      $('#project-filters').innerHTML=filters.map(f=>`<button type="button" class="filter" data-filter="${f.id}" aria-pressed="${currentFilter===f.id}">${esc(f.label)}</button>`).join('');
+    }
+    function renderProjects() {
+      const matching=PORTFOLIO_DATA.projects.filter(p=>currentFilter==='all'||p.filter===currentFilter);
+      $('#projects-list').innerHTML=matching.map(item=>`<article class="project-card reveal ${item.featured&&currentFilter==='all'?'feature':''}">${projectCover(item)}<div class="project-copy"><div class="flex flex-wrap gap-2 items-center justify-between mb-4"><span class="eyebrow">${esc(item.category)}</span><span class="project-status">${esc(item.status)}</span></div><h3 class="project-title text-[clamp(1.25rem,2.3vw,1.9rem)] font-bold">${esc(item.title)}</h3>${item.tagline?`<p class="text-[13px] mt-2 font-semibold text-brand">${esc(item.tagline)}</p>`:''}<p class="text-[11px] mt-1 font-semibold tracking-[.08em] text-brand-deep">${esc(item.en)}</p><p class="text-[13px] muted leading-[1.9] mt-5">${esc(item.summary)}</p><button type="button" class="project-more" data-open-project="${esc(item.id)}" aria-label="查看 ${esc(item.title)} 詳細資訊">查看專案資訊 <span class="arr" aria-hidden="true">→</span></button></div></article>`).join('')||'<p class="text-sm muted">目前尚無此分類作品。</p>';
+      observeReveal();
+    }
+    function openProject(id) {
+      const item=PORTFOLIO_DATA.projects.find(p=>p.id===id); if(!item) return;
+      $('#modal-category').textContent=item.category;
+      $('#modal-title').textContent=item.title;
+      $('#modal-status').textContent=`目前狀態：${item.status}`;
+      const tagline=$('#modal-tagline');
+      tagline.textContent=item.tagline||'';
+      tagline.hidden=!item.tagline;
+      $('#modal-showcase').innerHTML=item.showcaseImage
+        ? `<figure class="mt-6"><img class="w-full rounded-lg border border-neutral-3" src="${esc(item.showcaseImage)}" alt="${esc(item.showcaseImageAlt||item.title)}" loading="lazy"><figcaption class="text-[11px] text-brand-deep mt-2">小鴨寶寶日記登入後的介面展示</figcaption></figure>`
+        : '';
+      $('#modal-details').innerHTML=item.details.map(d=>{
+        const paragraphs=d.paragraphs||(d.body?[d.body]:[]);
+        const body=paragraphs.map(text=>`<p class="text-[13px] leading-[1.95] muted mt-2">${esc(text)}</p>`).join('');
+        const points=(d.points||[]).map(point=>`<li>${point.label?`<strong>${esc(point.label)}：</strong>`:''}${esc(point.body||point)}</li>`).join('');
+        const list=points?`<ul class="dotlist text-[13px] muted leading-[1.8] mt-3">${points}</ul>`:'';
+        return `<div class="border-t hairline pt-5"><h4 class="font-bold text-[13px]">${esc(d.label)}</h4>${body}${list}</div>`;
+      }).join('');
+      const links=[['GitHub',item.githubUrl],['網站 Demo',item.demoUrl]].filter(([,url])=>url&&/^https?:\/\//.test(url));
+      $('#modal-links').innerHTML=links.map(([label,url])=>`<a class="btn btn-outline" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`).join('');
+      $('#project-dialog').showModal();
+    }
+    function renderEducation() {
+      $('#education-list').innerHTML=PORTFOLIO_DATA.education.map(item=>`<article class="edu-card reveal"><p class="eyebrow mb-5">${esc(item.kind)}</p><h3 class="font-bold text-[23px] tracking-[-.03em]">${esc(item.school)}</h3><p class="text-brand-deep font-semibold text-[14px] mt-2">${esc(item.title)}</p><p class="text-[11px] text-brand-deep mt-2">${esc(item.period)}</p><p class="text-[13px] muted leading-[1.95] mt-6">${esc(item.description)}</p><div class="flex flex-wrap gap-2 mt-6">${chips(item.tags)}</div></article>`).join('');
+    }
+    function renderContactAndInsights() {
+      $('#insight-topics').innerHTML=chips(PORTFOLIO_DATA.insights);
+      const email=PORTFOLIO_DATA.contact.email;
+      $('#contact-email').textContent=email;
+      $('#contact-email').href=`mailto:${email}`;
+      $('#contact-cta').href=`mailto:${email}?subject=${encodeURIComponent('合作交流｜Gene 個人作品集')}`;
+      $('#year').textContent=new Date().getFullYear();
+    }
+    /* ────────────────── 導覽、互動、進場動畫 ────────────────── */
+    let revealObserver;
+    function observeReveal() {
+      const nodes=document.querySelectorAll('.reveal:not(.in)');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+        nodes.forEach(n=>n.classList.add('in')); return;
+      }
+      if(!revealObserver) revealObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in');revealObserver.unobserve(entry.target);}});
+      },{threshold:.08,rootMargin:'0px 0px 35px 0px'});
+      nodes.forEach(node=>revealObserver.observe(node));
+    }
+    function initInteractions() {
+      const header=$('#site-header');
+      const updateShadow=()=>header.classList.toggle('scrolled',window.scrollY>15);
+      window.addEventListener('scroll',updateShadow,{passive:true}); updateShadow();
+      const menu=$('#mobile-menu'), toggle=$('#menu-toggle');
+      function closeMenu(){menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','開啟選單');}
+      toggle.addEventListener('click',()=>{const nowOpen=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',String(nowOpen));toggle.setAttribute('aria-label',nowOpen?'關閉選單':'開啟選單');});
+      menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+      document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+      $('#project-filters').addEventListener('click',e=>{const btn=e.target.closest('[data-filter]');if(!btn)return;currentFilter=btn.dataset.filter;renderFilters();renderProjects();});
+      $('#projects-list').addEventListener('click',e=>{const btn=e.target.closest('[data-open-project]');if(btn)openProject(btn.dataset.openProject);});
+      $('#modal-close').addEventListener('click',()=>$('#project-dialog').close());
+      $('#project-dialog').addEventListener('click',e=>{if(e.target===$('#project-dialog'))$('#project-dialog').close();});
+      $('#print-resume').addEventListener('click',()=>window.print());
+      if('IntersectionObserver' in window){
+        const links=[...document.querySelectorAll('.nav-link')];
+        const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===`#${entry.target.id}`));}}),{rootMargin:'-22% 0px -64% 0px'});
+        document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
+      }
+    }
+    renderProfile(); renderAbout(); renderExpertise(); renderExperience(); renderFilters(); renderProjects(); renderEducation(); renderContactAndInsights(); initInteractions(); observeReveal();
+  </script>
+</body>
+</html>
