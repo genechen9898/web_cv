@@ -1,0 +1,2810 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- ==========================================================================
+       SEO Meta Tags (未來請於部署前替換為您的真實資訊)
+       ========================================================================== -->
+  <title>[Gene] | [MarTech 行銷科技｜數位金融產品企劃｜AI 應用與數據分析] - 個人履歷與作品集</title>
+  <meta name="description" content="[個人簡介摘要] - 從商業需求出發，以數據洞察與 AI 技術，將想法轉化為可驗證的數位產品。" />
+  <meta name="keywords" content="MarTech, 數位金融, 產品企劃, PM, AI 應用, 數據分析, 數位轉型, 個人履歷, 作品集" />
+  <meta name="author" content="[Gene]" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / 社群分享預覽標籤 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="[Gene] | [行銷科技 X AI應用 X 數位金融]" />
+  <meta property="og:description" content="[一句個人價值主張]" />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- ==========================================================================
+       字體載入：Google Fonts (Noto Sans TC & Inter)
+       授權說明：SIL Open Font License 1.1 (免費開源，可商用與個人使用)
+       ========================================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       1. CSS 變數系統 (Design Tokens) - FinTech & SaaS 現代企業風格
+       對應獨立專案中的 css/style.css
+       ========================================================================== */
+    :root {
+      /* 核心品牌色：深藍、科技藍、純白與冷灰 */
+      --color-navy-900: #0F172A;
+      --color-navy-800: #1E293B;
+      --color-blue-900: #1E3A8A;
+      --color-blue-600: #2563EB;
+      --color-blue-500: #3B82F6;
+      --color-blue-100: #DBEAFE;
+      --color-blue-50:  #EFF6FF;
+
+      /* 淺色模式 (Light Mode) 預設語意變數 */
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-surface-hover: #F1F5F9;
+      --bg-badge: #EFF6FF;
+      --bg-nav: rgba(255, 255, 255, 0.88);
+
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #64748B;
+      --text-accent: #1E3A8A;
+      --text-on-accent: #FFFFFF;
+
+      --border-color: #E2E8F0;
+      --border-hover: #CBD5E1;
+      --accent-primary: #2563EB;
+      --accent-secondary: #1E3A8A;
+
+      --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+
+      /* 版面與圓角規範 */
+      --container-max: 1160px;
+      --nav-height: 72px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+
+      /* 字體設定 */
+      --font-sans: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+      /* 動畫曲線 */
+      --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* 深色模式 (Dark Mode) 語意變數 */
+    [data-theme="dark"] {
+      --bg-primary: #0F172A;
+      --bg-secondary: #131C31;
+      --bg-surface: #1E293B;
+      --bg-surface-hover: #263349;
+      --bg-badge: rgba(37, 99, 235, 0.16);
+      --bg-nav: rgba(15, 23, 42, 0.88);
+
+      --text-primary: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --text-muted: #94A3B8;
+      --text-accent: #60A5FA;
+      --text-on-accent: #FFFFFF;
+
+      --border-color: #334155;
+      --border-hover: #475569;
+      --accent-primary: #3B82F6;
+      --accent-secondary: #60A5FA;
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 14px 32px -4px rgba(0, 0, 0, 0.45);
+    }
+
+    /* ==========================================================================
+       2. 基礎重置與無障礙設定 (Reset & Accessibility)
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 24px);
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color var(--transition-normal), color var(--transition-normal);
+      overflow-x: hidden;
+    }
+
+    /* 尊重系統減少動態偏好 */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* 鍵盤導覽聚焦樣式 */
+    :focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* 跳至主內容無障礙連結 */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--accent-primary);
+      color: #FFFFFF;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      z-index: 9999;
+      text-decoration: none;
+      transition: top var(--transition-fast);
+    }
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ==========================================================================
+       3. 共用版面與元件樣式 (Layout & Shared Components)
+       ========================================================================== */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 96px 0;
+      position: relative;
+    }
+
+    .section-alt {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    /* 區塊標題設計 */
+    .section-header {
+      margin-bottom: 48px;
+      max-width: 680px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-primary);
+      margin-bottom: 10px;
+    }
+
+    .section-eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 18px;
+      height: 2px;
+      background-color: var(--accent-primary);
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+
+    /* 按鈕系統 */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      transition: all var(--transition-fast);
+      min-height: 46px;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-primary);
+      color: var(--text-on-accent);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-blue-900);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.32);
+    }
+
+    [data-theme="dark"] .btn-primary:hover {
+      background-color: var(--color-blue-600);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-surface-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 0.875rem;
+      min-height: 38px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* 佔位文字視覺標記（方便開發階段辨識尚未填寫的欄位） */
+    .placeholder-tag {
+      color: var(--text-accent);
+      font-weight: 600;
+    }
+
+    /* 進入視野動畫 */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       4. 固定式導覽列 (Sticky Navbar)
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--nav-height);
+      background-color: var(--bg-nav);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+    }
+
+    .navbar.is-scrolled {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--color-blue-900), var(--color-blue-600));
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-link {
+      padding: 8px 14px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border-radius: var(--radius-sm);
+      transition: color var(--transition-fast), background-color var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+      background-color: var(--bg-surface-hover);
+    }
+
+    .nav-link.active {
+      color: var(--accent-primary);
+      background-color: var(--bg-badge);
+      font-weight: 600;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-fast);
+    }
+
+    .icon-btn:hover {
+      background-color: var(--bg-surface-hover);
+      border-color: var(--border-hover);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    /* 手機版漢堡抽屜選單 */
+    .mobile-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 1100;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity var(--transition-normal), visibility var(--transition-normal);
+    }
+
+    .mobile-drawer.is-open {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .mobile-drawer-backdrop {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(4px);
+    }
+
+    .mobile-drawer-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: min(320px, 85vw);
+      height: 100%;
+      background-color: var(--bg-surface);
+      border-left: 1px solid var(--border-color);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform var(--transition-normal);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .mobile-drawer.is-open .mobile-drawer-panel {
+      transform: translateX(0);
+    }
+
+    .mobile-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 20px;
+    }
+
+    .mobile-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border-radius: var(--radius-sm);
+    }
+
+    .mobile-nav-link.active,
+    .mobile-nav-link:hover {
+      background-color: var(--bg-badge);
+      color: var(--accent-primary);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       5. 首頁 Hero Section
+       ========================================================================== */
+    .hero {
+      padding: 80px 0 96px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 細膩科技網格背景紋理 */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.55;
+      pointer-events: none;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .target-roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-accent);
+      background-color: var(--bg-badge);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: var(--radius-full);
+    }
+
+    .role-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--accent-primary);
+    }
+
+    .hero-name {
+      font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      font-weight: 600;
+      color: var(--accent-primary);
+      margin-bottom: 18px;
+    }
+
+    .hero-value-prop {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      padding-left: 14px;
+      border-left: 3px solid var(--accent-primary);
+      margin-bottom: 16px;
+    }
+
+    .hero-summary {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* 個人形象照預留框位 */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .avatar-frame {
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-lg);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-placeholder-box {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-md);
+      background: linear-gradient(145deg, var(--bg-secondary), var(--bg-badge));
+      border: 2px dashed var(--border-hover);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      gap: 16px;
+    }
+
+    .avatar-placeholder-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+    }
+
+    .avatar-hint {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       6. About Me 自我介紹 (五大結構化卡片)
+       ========================================================================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+
+    .about-card {
+      grid-column: span 4;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+    }
+
+    .about-card:nth-child(4),
+    .about-card:nth-child(5) {
+      grid-column: span 6;
+    }
+
+    .about-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-primary);
+    }
+
+    .about-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-badge);
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .about-card-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .about-card-en {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .about-card-text {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       7. Work Experience 工作經驗 (時間軸 Timeline)
+       ========================================================================== */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background-color: var(--border-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-hover);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -32px;
+      top: 32px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: var(--bg-surface);
+      border: 3px solid var(--accent-primary);
+      box-shadow: 0 0 0 4px var(--bg-primary);
+    }
+
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .timeline-role {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .timeline-company {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-primary);
+    }
+
+    .timeline-period {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      color: var(--text-secondary);
+    }
+
+    .timeline-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .timeline-block-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .timeline-list li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+    }
+
+    .timeline-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+      font-weight: 700;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+    }
+
+    /* ==========================================================================
+       8. Education 學歷與專業培訓 (雙欄卡片佈局)
+       ========================================================================== */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .edu-column-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .edu-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+    }
+
+    .edu-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-primary);
+    }
+
+    .edu-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .edu-school {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .edu-period {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .edu-degree {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--accent-primary);
+      margin-bottom: 8px;
+    }
+
+    .edu-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================================================
+       9. Projects 精選作品集 (分類篩選與卡片)
+       ========================================================================== */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .filter-btn {
+      padding: 8px 18px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      background-color: var(--bg-surface);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      transition: all var(--transition-fast);
+      min-height: 40px;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    .filter-btn.active {
+      background-color: var(--accent-primary);
+      color: #FFFFFF;
+      border-color: var(--accent-primary);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 28px;
+    }
+
+    .project-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-primary);
+    }
+
+    .project-cover {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, var(--color-navy-900), var(--color-blue-900));
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #FFFFFF;
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .project-cover img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-cover-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .project-cover-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background-color: rgba(255, 255, 255, 0.14);
+      color: #E2E8F0;
+    }
+
+    .project-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-category-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      background-color: var(--bg-badge);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 10px;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .project-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .project-meta-item strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .project-tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 14px;
+      margin-bottom: 18px;
+    }
+
+    .project-tech-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .project-actions .btn-detail {
+      margin-left: auto;
+    }
+
+    /* 空狀態提示卡片（內容建置中） */
+    .empty-state-box {
+      grid-column: 1 / -1;
+      background-color: var(--bg-surface);
+      border: 1px dashed var(--border-hover);
+      border-radius: var(--radius-lg);
+      padding: 56px 24px;
+      text-align: center;
+      color: var(--text-secondary);
+    }
+
+    .empty-state-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 12px;
+      margin-bottom: 6px;
+    }
+
+    /* ==========================================================================
+       10. Skills 專業技能 (六大分類卡片，無虛構百分比)
+       ========================================================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-primary);
+    }
+
+    .skill-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .skill-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-badge);
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .skill-category-title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .skill-category-zh {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-pill {
+      padding: 6px 14px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      transition: all var(--transition-fast);
+    }
+
+    .skill-pill:hover {
+      border-color: var(--accent-primary);
+      background-color: var(--bg-badge);
+      color: var(--accent-primary);
+    }
+
+    /* ==========================================================================
+       11. Contact 聯絡與履歷下載
+       ========================================================================== */
+    .contact-card {
+      background: linear-gradient(135deg, var(--color-navy-900) 0%, var(--color-blue-900) 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact-eyebrow {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #93C5FD;
+      margin-bottom: 10px;
+    }
+
+    .contact-title {
+      font-size: clamp(1.625rem, 3vw, 2.125rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+
+    .contact-desc {
+      color: #CBD5E1;
+      font-size: 1rem;
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+
+    .resume-box {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .resume-info-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+
+    .resume-info-sub {
+      font-size: 0.8125rem;
+      color: #CBD5E1;
+    }
+
+    .btn-resume {
+      background-color: #FFFFFF;
+      color: var(--color-navy-900);
+      font-weight: 700;
+    }
+
+    .btn-resume:hover {
+      background-color: #EFF6FF;
+      transform: translateY(-2px);
+    }
+
+    .contact-links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-item-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background-color: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-md);
+      color: #FFFFFF;
+      text-align: left;
+      transition: all var(--transition-fast);
+    }
+
+    .contact-item-btn:hover {
+      background-color: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateX(4px);
+    }
+
+    .contact-item-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .contact-item-label {
+      font-size: 0.75rem;
+      color: #93C5FD;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-item-value {
+      font-size: 0.9375rem;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       12. Footer & Back to Top & Modal & Toast
+       ========================================================================== */
+    .footer {
+      padding: 36px 0;
+      border-top: 1px solid var(--border-color);
+      background-color: var(--bg-primary);
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* 回到頂部按鈕 */
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-full);
+      background-color: var(--accent-primary);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all var(--transition-fast);
+      z-index: 900;
+    }
+
+    .back-to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background-color: var(--color-blue-900);
+      transform: translateY(-3px);
+    }
+
+    /* 作品詳細內容 Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      background-color: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition-normal), visibility var(--transition-normal);
+    }
+
+    .modal-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-dialog {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 720px;
+      max-height: 88vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.96);
+      transition: transform var(--transition-normal);
+    }
+
+    .modal-overlay.is-open .modal-dialog {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      background-color: var(--bg-surface);
+      z-index: 2;
+    }
+
+    .modal-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .modal-section-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      margin-bottom: 6px;
+    }
+
+    .modal-section-content {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .modal-footer {
+      padding: 18px 28px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
+      background-color: var(--bg-secondary);
+    }
+
+    /* Toast 狀態通知 */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1500;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+      width: min(440px, calc(100vw - 32px));
+    }
+
+    .toast {
+      background-color: var(--color-navy-900);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: toastSlideUp 0.25s ease-out forwards;
+    }
+
+    [data-theme="dark"] .toast {
+      background-color: #1E293B;
+      border-color: #475569;
+    }
+
+    @keyframes toastSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==========================================================================
+       13. 響應式設計斷點 (Responsive Breakpoints: Tablet & Mobile)
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-visual {
+        order: -1;
+      }
+      .avatar-frame {
+        max-width: 280px;
+      }
+      .about-card {
+        grid-column: span 6;
+      }
+      .about-card:nth-child(5) {
+        grid-column: span 12;
+      }
+      .timeline-body {
+        grid-template-columns: 1fr;
+      }
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-card {
+        grid-template-columns: 1fr;
+        padding: 36px 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 72px 0;
+      }
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+      .about-card,
+      .about-card:nth-child(4),
+      .about-card:nth-child(5) {
+        grid-column: span 12;
+      }
+      .projects-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .timeline {
+        padding-left: 24px;
+      }
+      .timeline-item {
+        padding: 22px 20px;
+      }
+      .timeline-dot {
+        left: -24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 無障礙快速跳轉連結 -->
+  <a href="#main-content" class="skip-link">跳至主要內容</a>
+
+  <!-- ==========================================================================
+       1. 固定式導覽列 (Sticky Navbar)
+       ========================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="#hero" class="brand" aria-label="回到首頁">
+        <span class="brand-icon" id="nav-logo-initials">PM</span>
+        <span id="nav-brand-name">[Gene]</span>
+      </a>
+
+      <!-- 桌面版導覽連結 -->
+      <nav aria-label="主要導覽選單">
+        <ul class="nav-links" id="desktop-nav-links">
+          <li><a href="#about" class="nav-link" data-section="about">關於我</a></li>
+          <li><a href="#experience" class="nav-link" data-section="experience">工作經驗</a></li>
+          <li><a href="#education" class="nav-link" data-section="education">學歷培訓</a></li>
+          <li><a href="#projects" class="nav-link" data-section="projects">精選作品</a></li>
+          <li><a href="#skills" class="nav-link" data-section="skills">專業技能</a></li>
+          <li><a href="#contact" class="nav-link" data-section="contact">聯絡方式</a></li>
+        </ul>
+      </nav>
+
+      <!-- 右側功能區：深淺色模式切換 & 手機漢堡按鈕 -->
+      <div class="nav-actions">
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="切換淺色或深色模式" title="切換淺色 / 深色模式">
+          <!-- 太陽圖示（深色模式下顯示） -->
+          <svg id="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- 月亮圖示（淺色模式下顯示） -->
+          <svg id="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="icon-btn mobile-menu-btn" id="mobile-menu-open" aria-label="開啟導覽選單" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 手機版抽屜式導覽選單 -->
+  <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="手機版導覽選單">
+    <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <span class="brand">
+          <span class="brand-icon">PM</span>
+          <span>導覽選單</span>
+        </span>
+        <button type="button" class="icon-btn" id="mobile-menu-close" aria-label="關閉導覽選單">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <ul class="mobile-nav-list">
+        <li><a href="#about" class="mobile-nav-link" data-section="about">關於我 <span>About</span></a></li>
+        <li><a href="#experience" class="mobile-nav-link" data-section="experience">工作經驗 <span>Experience</span></a></li>
+        <li><a href="#education" class="mobile-nav-link" data-section="education">學歷培訓 <span>Education</span></a></li>
+        <li><a href="#projects" class="mobile-nav-link" data-section="projects">精選作品 <span>Projects</span></a></li>
+        <li><a href="#skills" class="mobile-nav-link" data-section="skills">專業技能 <span>Skills</span></a></li>
+        <li><a href="#contact" class="mobile-nav-link" data-section="contact">聯絡方式 <span>Contact</span></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       主內容區 (Main Content)
+       ========================================================================== -->
+  <main id="main-content">
+    <!-- 2. 首頁 Hero Section -->
+    <section class="hero" id="hero" aria-labelledby="hero-name">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <!-- 目標職位領域標籤列 -->
+          <div class="target-roles" id="hero-target-roles" aria-label="目標職位領域">
+            <!-- 由 JS 動態渲染 -->
+          </div>
+
+          <h1 class="hero-name" id="hero-name">[Gene]</h1>
+          <p class="hero-title" id="hero-title">[行銷科技 X AI應用 X 數位金融]</p>
+          <p class="hero-value-prop" id="hero-value-prop">[一句個人價值主張]</p>
+          <p class="hero-summary" id="hero-summary">[個人簡介摘要]</p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <span>查看作品集</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#about" class="btn btn-secondary">
+              <span>了解更多</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 右側個人形象照預留區 -->
+        <div class="hero-visual reveal">
+          <div class="avatar-frame" id="avatar-container">
+            <div class="avatar-placeholder-box">
+              <!-- 專業商務輪廓 SVG 佔位圖 -->
+              <svg width="110" height="110" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="個人形象照預留佔位圖">
+                <circle cx="60" cy="60" r="56" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-opacity="0.25" stroke-width="2"/>
+                <circle cx="60" cy="45" r="18" stroke="currentColor" stroke-opacity="0.55" stroke-width="2.5"/>
+                <path d="M28 96C28 79.4315 42.3269 66 60 66C77.6731 66 92 79.4315 92 96" stroke="currentColor" stroke-opacity="0.55" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+              <p class="avatar-hint">[個人形象照預留區]<br />建議尺寸 800 x 800px（支援 JPG / PNG / WebP）</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. About Me 自我介紹 -->
+    <section class="section section-alt" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-eyebrow">About Me</p>
+          <h2 class="section-title" id="about-heading">自我介紹與核心定位</h2>
+          <p class="section-subtitle">以下區塊已建立標準化個人品牌敘事結構，未來可於資料檔中逐步填入個人背景與職涯亮點。</p>
+        </header>
+
+        <div class="about-grid" id="about-grid">
+          <!-- 由 JS 渲染五大結構化卡片 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Work Experience 工作經驗 (時間軸 Timeline) -->
+    <section class="section" id="experience" aria-labelledby="experience-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-eyebrow">Work Experience</p>
+          <h2 class="section-title" id="experience-heading">工作經驗與職涯歷程</h2>
+          <p class="section-subtitle">採用可持續擴充的時間軸架構，支援多筆職務經歷、職責條列、量化成果指標與工具標籤。</p>
+        </header>
+
+        <div class="timeline" id="experience-timeline">
+          <!-- 由 JS 渲染時間軸項目 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Education 學歷與專業培訓 -->
+    <section class="section section-alt" id="education" aria-labelledby="education-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-eyebrow">Education &amp; Certifications</p>
+          <h2 class="section-title" id="education-heading">學歷背景與專業培訓</h2>
+          <p class="section-subtitle">整合高等教育學歷、跨域專業培訓課程與相關領域證照資格。</p>
+        </header>
+
+        <div class="edu-grid">
+          <!-- 左欄：學歷背景 -->
+          <div class="reveal">
+            <h3 class="edu-column-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <span>學歷背景 (Academic Background)</span>
+            </h3>
+            <div class="edu-list" id="education-list">
+              <!-- 由 JS 渲染 -->
+            </div>
+          </div>
+
+          <!-- 右欄：專業培訓與證照 -->
+          <div class="reveal">
+            <h3 class="edu-column-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+              <span>專業培訓與證照 (Training &amp; Certifications)</span>
+            </h3>
+            <div class="edu-list" id="certifications-list">
+              <!-- 由 JS 渲染 -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Projects 精選作品集 -->
+    <section class="section" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-eyebrow">Featured Projects</p>
+          <h2 class="section-title" id="projects-heading">精選作品與專案實績</h2>
+          <p class="section-subtitle">可依專業領域分類篩選專案案例；尚未建立作品的分類將自動顯示「內容建置中」。</p>
+        </header>
+
+        <!-- 分類篩選器 -->
+        <div class="filter-bar reveal" role="tablist" aria-label="作品集分類篩選" id="project-filters">
+          <!-- 由 JS 動態生成篩選按鈕 -->
+        </div>
+
+        <!-- 作品卡片網格 -->
+        <div class="projects-grid" id="projects-grid" aria-live="polite">
+          <!-- 由 JS 渲染作品卡片或空狀態 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Skills 專業技能 -->
+    <section class="section section-alt" id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-eyebrow">Core Competencies &amp; Skills</p>
+          <h2 class="section-title" id="skills-heading">專業技能與工具矩陣</h2>
+          <p class="section-subtitle">依六大核心領域分類呈現工具與方法論（無主觀能力百分比，聚焦實際應用範疇）。</p>
+        </header>
+
+        <div class="skills-grid" id="skills-grid">
+          <!-- 由 JS 渲染六大分類卡片 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Contact 聯絡與履歷下載 -->
+    <section class="section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div>
+            <p class="contact-eyebrow">Contact &amp; Resume</p>
+            <h2 class="contact-title" id="contact-heading">建立聯繫與履歷下載</h2>
+            <p class="contact-desc" id="contact-desc">[聯絡邀請說明佔位文字：歡迎企業人資、招募主管或合作夥伴透過以下管道聯繫交流。]</p>
+
+            <!-- 履歷 PDF 下載區塊 -->
+            <div class="resume-box">
+              <div>
+                <p class="resume-info-title">完整個人履歷表 (Curriculum Vitae)</p>
+                <p class="resume-info-sub" id="resume-status-text">[履歷 PDF 檔案預留區 - 尚未上傳檔案]</p>
+              </div>
+              <button type="button" class="btn btn-resume" id="download-resume-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>下載履歷 PDF</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 聯絡方式清單 -->
+          <div class="contact-links-list" id="contact-links-list">
+            <!-- 由 JS 渲染 Email、GitHub、LinkedIn、其他作品連結 -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Footer 頁尾
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="current-year"></span> <span id="footer-name">[Gene]</span>. All Rights Reserved.</p>
+      <p>Built with Semantic HTML5, Modern CSS3 &amp; Vanilla JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- 回到頂部按鈕 -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="回到頁面頂部" title="回到頂部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- ==========================================================================
+       作品詳細內容 Modal 彈窗
+       ========================================================================== -->
+  <div class="modal-overlay" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <span class="project-category-badge" id="modal-project-category">[分類]</span>
+          <h3 class="project-title" id="modal-project-title" style="margin-bottom: 0;">[作品名稱]</h3>
+        </div>
+        <button type="button" class="icon-btn" id="modal-close-btn" aria-label="關閉詳細內容視窗">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-project-body">
+        <!-- 由 JS 動態填入作品完整欄位 -->
+      </div>
+      <div class="modal-footer" id="modal-project-footer">
+        <!-- 由 JS 動態填入外部連結按鈕與關閉按鈕 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast 通知容器 -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT 資料層與互動邏輯
+       說明：若拆分檔案架構，可將下方的 PORTFOLIO_DATA 獨立儲存為 js/data.js，
+            並將後續邏輯儲存為 js/main.js。
+       ========================================================================== -->
+  <script>
+    /**
+     * ==========================================================================
+     * [資料設定檔：js/data.js]
+     * 未來更新個人履歷、新增工作經歷或作品集時，僅需修改此物件內容，無需更動 HTML。
+     * 注意：尚未提供真實連結時，請保持 url 為空字串 ""，系統將自動顯示友善提示，
+     *       避免產生無效或虛構外部連結。
+     * ==========================================================================
+     */
+    const PORTFOLIO_DATA = {
+      profile: {
+        logoInitials: "ID",
+        name: "[Gene]",
+        title: "[MarTech 行銷科技｜數位金融產品企劃｜AI 應用與數據分析]",
+        valueProposition: "[從商業需求出發，以數據洞察與 AI 技術，將想法轉化為可驗證的數位產品。]",
+        summary: "[具備企業管理與財務金融跨領域背景，曾任市場調查執行督導，累積專案執行、資料蒐集、流程優化與溝通協調經驗。過去曾運用 Google 表單與試算表改善傳統紙本作業流程，進而對數位轉型與科技應用產生興趣。目前參與 AI 與資訊安全實務培訓，持續學習 Python、SQL、機器學習及網頁開發，並透過 AI 航班延誤保險與資安應用專題，探索商業需求、數據分析及 AI 技術的整合應用。未來希望投入 MarTech 行銷科技、數位金融產品企劃或 AI 應用相關領域，發揮商業分析與跨領域整合能力。]",
+        // 若已備妥個人形象照，請填入相對路徑（例如 "assets/images/avatar.jpg"），留空則顯示 SVG 佔位框
+        avatarUrl: "",
+        avatarAlt: "[Gene] 個人形象照",
+        targetRoles: [
+          "MarTech 行銷科技",
+          "數位金融產品企劃（PM）",
+          "AI 應用與數據分析",
+          "數位轉型與產品創新"
+        ]
+      },
+
+      // About Me 五大結構化區塊
+      aboutSections: [
+        {
+          id: "background",
+          title: "[個人背景]",
+          enTitle: "Background",
+          icon: "user",
+          content: "[畢業於國立臺灣科技大學企業管理系，雙主修財務金融。過去從事市場調查執行工作，接觸資料蒐集、專案協調與流程管理，逐漸發現科技工具對於提升工作效率及改善商業決策的價值，因此開始跨足 AI、數據分析與資訊科技。]"
+        },
+        {
+          id: "direction",
+          title: "[職涯方向]",
+          enTitle: "Career Direction",
+          icon: "compass",
+          content: "[以 MarTech 行銷科技為主要發展方向，同時關注數位金融產品企劃與 AI 商業應用。期望結合商業管理背景與技術能力，參與數位產品規劃、使用者需求分析及數據驅動的服務創新。]"
+        },
+        {
+          id: "competencies",
+          title: "[核心競爭力]",
+          enTitle: "Core Competencies",
+          icon: "layers",
+          content: "[具備商業需求理解、專案執行、溝通協調及資料整理能力。能從實際工作流程中辨識問題，提出改善方向，並嘗試運用 Google Apps Script、Python 與 AI 工具建立解決方案。]"
+        },
+        {
+          id: "traits",
+          title: "[個人特質]",
+          enTitle: "Personal Traits",
+          icon: "sparkles",
+          content: "[具有主動學習與跨領域探索的特質，習慣從使用者需求及實際問題出發思考解決方式。面對不熟悉的技術領域，願意持續嘗試、拆解問題，並透過專案實作累積能力。]"
+        },
+        {
+          id: "goals",
+          title: "[專業目標]",
+          enTitle: "Professional Goals",
+          icon: "target",
+          content: "[持續精進產品規劃、資料分析、AI 應用與資訊安全知識，逐步建立從需求研究、資料處理、產品原型到成效驗證的完整能力，成為能連結商業需求與技術團隊的跨領域人才。]"
+        }
+      ],
+
+      // Work Experience 工作經驗（可依時間倒序持續新增物件）
+      experiences: [
+        {
+          company: "[益普索市場研究公司]",
+          role: "[市調督導]",
+          period: "[任職期間：YYYY.MM - 至今 / YYYY.MM]",
+          responsibilities: [
+            "[工作職責 1：負責市場調查專案執行、現場工作協調與調查進度追蹤。]",
+            "[工作職責 2：協助整理調查資料，運用 Google 表單與試算表優化資料蒐集及管理流程。]",
+            "[工作職責 3：溝通現場執行需求，處理調查作業中遇到的問題，維持專案執行品質。]"
+          ],
+          achievements: [
+            "[量化成果 1：參與傳統紙本問卷作業的數位化改善，運用 Google 表單及試算表簡化資料紀錄流程。]",
+            "[量化成果 2：提出以 ID 查詢系統改善資料檢索與管理的構想，探索作業流程自動化的可行性。]"
+          ],
+          tools: ["[Google Forms]", "[Google Sheets]", "[資料整理]", "[專案協調]"]
+        },
+
+      ],
+
+      // Education 學歷與專業培訓
+      education: [
+        {
+          school: "[國立臺灣科技大學]",
+          department: "[企業管理系｜雙主修財務金融]",
+          degree: "[學位：學士]",
+          period: "[就讀期間：YYYY.MM - YYYY.MM]",
+          description: "[具備商業管理、財務金融及市場研究相關知識。大學期間曾參與學生會、系學會及社團公關與企劃工作，累積活動規劃、團隊合作及溝通協調經驗。]"
+        }
+      ],
+
+      certifications: [
+        {
+          name: "[AI 新秀培訓計畫｜資訊安全領域]",
+          issuer: "	國立臺北科技大學 / 平台名稱]",
+          period: "[2026.09–2026.12]",
+          description: "[參與 AI、Linux、資安監控、日誌分析、零信任及 OWASP 等課程，並以 AI 與智能合約航班延誤保險為專題進行跨域應用實作。]"
+        },
+        {
+          name: "[專業證照名稱]",
+          issuer: "[核發機構名稱]",
+          period: "[取得時間：YYYY.MM]",
+          description: "[證照編號或專業領域說明佔位文字。]"
+        }
+      ],
+
+      // Projects 精選作品集分類定義
+      projectCategories: [
+        "All",
+        "AI / Machine Learning",
+        "Data Analytics",
+        "Web Development",
+        "Product Design",
+        "Automation"
+      ],
+
+      // Projects 作品清單（未來可直接新增物件；若某分類無作品，篩選時會自動顯示「內容建置中」）
+      projects: [
+        {
+          id: "proj-1",
+          title: "[這趟我罩你｜AI 航班延誤保險系統]",
+          category: "AI / Machine Learning",
+          coverUrl: "", // 若有封面圖請填寫路徑，如 "assets/images/project-1.png"
+          background: "[以旅遊不便險為應用場景，探索如何結合航班資訊、氣象數據、機器學習與智能合約，建立具有風險辨識及參數型理賠機制的保險概念驗證系統。]",
+          problem: "[傳統保險商品不一定能充分反映個別航班風險。本專題嘗試透過延誤機率預測，設計風險分級與動態保費機制，並探索符合條件時自動觸發理賠的流程。]",
+          technologies: ["Python、Machine Learning、XGBoost / Random Forest（模型研究）、Flight & Weather Data、Smart Contract（開發中）"],
+          role: "[負責專題規劃、研究問題定義、資料來源探索、延誤預測特徵設計、風險分級邏輯與產品流程構想，並使用 AI 程式協作工具輔助系統開發。]",
+          outcome: "[已進行航班歷史資料蒐集及延誤事件分析，持續開發模型比較、保費計算與自動理賠展示功能。]",
+          githubUrl: "", // 尚未提供時請保持空字串 ""
+          demoUrl: ""    // 尚未提供時請保持空字串 ""
+        },
+        {
+          id: "proj-2",
+          title: "[AI 反釣魚郵件偵測系統]",
+          category: "DAI / Machine Learning",
+          coverUrl: "",
+          background: "[專案背景佔位文字：說明數據分析或商業智慧看板的應用背景。]",
+          problem: "[解決的問題佔位文字：解決決策資訊分散或客戶分群不精準的問題。]",
+          technologies: ["[使用技術 1]", "[使用技術 2]", "[視覺化工具]"],
+          role: "[個人負責項目佔位文字：負責指標定義、資料清洗邏輯與洞察報告。]",
+          outcome: "[成果摘要佔位文字：簡述分析發現如何支援行銷或產品決策。]",
+          githubUrl: "",
+          demoUrl: ""
+        },
+        {
+          id: "proj-3",
+          title: "[小鴨寶寶日記｜網站開發作品]",
+          category: "Web Development",
+          coverUrl: "",
+          background: "[以實際應用情境為出發點的個人網站開發專案。]",
+          problem: "[解決的問題佔位文字：簡化繁瑣操作步驟，提升用戶註冊或交易體驗。]",
+          technologies: ["[產品規劃工具]", "[原型設計工具]", "[用戶研究方法]"],
+          role: "[個人負責項目佔位文字：完成 User Flow、Wireframe 與 PRD 規格書。]",
+          outcome: "[成果摘要佔位文字：產出完整互動原型與易用性測試回饋。]",
+          githubUrl: "",
+          demoUrl: ""
+        }
+      ],
+
+      // Skills 六大專業技能分類（無虛構百分比）
+      skillCategories: [
+        {
+          enTitle: "Programming",
+          zhTitle: "程式開發與腳本",
+          icon: "code",
+          skills: ["[專業技能 1]", "[專業技能 2]", "[專業技能 3]", "[專業技能 4]"]
+        },
+        {
+          enTitle: "Data Analytics",
+          zhTitle: "數據分析與商業智慧",
+          icon: "barChart",
+          skills: ["[專業技能 1]", "[專業技能 2]", "[專業技能 3]", "[專業技能 4]"]
+        },
+        {
+          enTitle: "AI & Machine Learning",
+          zhTitle: "人工智慧與模型應用",
+          icon: "cpu",
+          skills: ["[專業技能 1]", "[專業技能 2]", "[專業技能 3]", "[專業技能 4]"]
+        },
+        {
+          enTitle: "Product Management",
+          zhTitle: "產品企劃與敏捷管理",
+          icon: "kanban",
+          skills: ["[專業技能 1]", "[專業技能 2]", "[專業技能 3]", "[專業技能 4]"]
+        },
+        {
+          enTitle: "Digital Marketing",
+          zhTitle: "MarTech 與數位行銷",
+          icon: "trendingUp",
+          skills: ["[專業技能 1]", "[專業技能 2]", "[專業技能 3]", "[專業技能 4]"]
+        },
+        {
+          enTitle: "Tools & Platforms",
+          zhTitle: "協作工具與雲端平台",
+          icon: "wrench",
+          skills: ["[專業技能 1]", "[專業技能 2]", "[專業技能 3]", "[專業技能 4]"]
+        }
+      ],
+
+      // Contact 聯絡資訊與履歷檔案設定
+      contact: {
+        description: "[聯絡邀請說明佔位文字：目前網站處於第一階段框架建置，未來將更新正式聯絡信箱、社群檔案與履歷 PDF。]",
+        email: "[聯絡資訊：Email 尚未設定]", // 設定真實信箱後（如 "name@example.com"），點擊可一鍵複製
+        githubUrl: "",    // 例如 "https://github.com/username"
+        linkedinUrl: "",  // 例如 "https://linkedin.com/in/username"
+        portfolioUrl: "", // 其他作品集或 Notion 連結
+        resumePdfPath: "", // 例如 "assets/resume/resume.pdf"
+        resumeFileName: "Resume.pdf"
+      }
+    };
+
+    /**
+     * ==========================================================================
+     * [應用程式邏輯：js/main.js]
+     * ==========================================================================
+     */
+    (function () {
+      "use strict";
+
+      // 內建俐落 SVG 圖示庫（避免依賴外部圖示庫 CDN）
+      const ICONS = {
+        user: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>',
+        compass: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>',
+        layers: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>',
+        sparkles: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z"></path></svg>',
+        target: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>',
+        code: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>',
+        barChart: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>',
+        cpu: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>',
+        kanban: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>',
+        trendingUp: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>',
+        wrench: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>',
+        github: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>',
+        externalLink: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>',
+        mail: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>',
+        linkedin: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>',
+        folder: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>'
+      };
+
+      // XSS 安全文字轉義工具
+      function escapeHTML(str) {
+        if (typeof str !== "string") return "";
+        return str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      // 顯示 Toast 提示訊息
+      function showToast(message) {
+        const container = document.getElementById("toast-container");
+        if (!container) return;
+
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.setAttribute("role", "status");
+        toast.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <span>${escapeHTML(message)}</span>
+        `;
+
+        container.appendChild(toast);
+
+        setTimeout(() => {
+          toast.style.opacity = "0";
+          toast.style.transform = "translateY(8px)";
+          toast.style.transition = "opacity 0.25s ease, transform 0.25s ease";
+          setTimeout(() => toast.remove(), 260);
+        }, 3200);
+      }
+
+      // 檢查連結是否已設定有效 URL，避免導向假網站
+      function handleExternalLink(url, labelName) {
+        const cleanUrl = (url || "").trim();
+        if (!cleanUrl || cleanUrl === "#" || cleanUrl.startsWith("[")) {
+          showToast(`尚未設定「${labelName}」連結或檔案路徑，請於 data.js 中更新。`);
+          return;
+        }
+        window.open(cleanUrl, "_blank", "noopener,noreferrer");
+      }
+
+      /* ----------------------------------------------------------------------
+         1. 主題切換管理 (Light / Dark Mode)
+         ---------------------------------------------------------------------- */
+      function initTheme() {
+        const htmlEl = document.documentElement;
+        const toggleBtn = document.getElementById("theme-toggle");
+        const iconSun = document.getElementById("icon-sun");
+        const iconMoon = document.getElementById("icon-moon");
+
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+
+        function applyTheme(theme) {
+          htmlEl.setAttribute("data-theme", theme);
+          localStorage.setItem("portfolio-theme", theme);
+          if (theme === "dark") {
+            iconSun.style.display = "block";
+            iconMoon.style.display = "none";
+          } else {
+            iconSun.style.display = "none";
+            iconMoon.style.display = "block";
+          }
+        }
+
+        applyTheme(initialTheme);
+
+        toggleBtn.addEventListener("click", () => {
+          const current = htmlEl.getAttribute("data-theme");
+          applyTheme(current === "dark" ? "light" : "dark");
+        });
+      }
+
+      /* ----------------------------------------------------------------------
+         2. 渲染各區塊內容 (Data-Driven Rendering)
+         ---------------------------------------------------------------------- */
+      function renderHero() {
+        const { profile } = PORTFOLIO_DATA;
+        document.getElementById("nav-logo-initials").textContent = profile.logoInitials;
+        document.getElementById("nav-brand-name").textContent = profile.name;
+        document.getElementById("hero-name").textContent = profile.name;
+        document.getElementById("hero-title").textContent = profile.title;
+        document.getElementById("hero-value-prop").textContent = profile.valueProposition;
+        document.getElementById("hero-summary").textContent = profile.summary;
+        document.getElementById("footer-name").textContent = profile.name;
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+
+        const rolesContainer = document.getElementById("hero-target-roles");
+        rolesContainer.innerHTML = profile.targetRoles
+          .map(
+            (role) => `
+            <span class="role-badge">
+              <span class="role-badge-dot"></span>
+              <span>${escapeHTML(role)}</span>
+            </span>
+          `
+          )
+          .join("");
+
+        // 若有設定個人形象照路徑則載入圖片（並附載入失敗防呆回退）
+        if (profile.avatarUrl && profile.avatarUrl.trim() !== "") {
+          const avatarContainer = document.getElementById("avatar-container");
+          avatarContainer.innerHTML = `
+            <img src="${escapeHTML(profile.avatarUrl)}" alt="${escapeHTML(profile.avatarAlt)}"
+                 onerror="this.parentElement.innerHTML='<div class=\\'avatar-placeholder-box\\'><p class=\\'avatar-hint\\'>[圖片載入失敗，請確認 assets/images/ 路徑]</p></div>'" />
+          `;
+        }
+      }
+
+      function renderAbout() {
+        const grid = document.getElementById("about-grid");
+        grid.innerHTML = PORTFOLIO_DATA.aboutSections
+          .map(
+            (item) => `
+            <article class="about-card reveal">
+              <div class="about-card-icon">${ICONS[item.icon] || ICONS.user}</div>
+              <h3 class="about-card-title">${escapeHTML(item.title)}</h3>
+              <p class="about-card-en">${escapeHTML(item.enTitle)}</p>
+              <p class="about-card-text">${escapeHTML(item.content)}</p>
+            </article>
+          `
+          )
+          .join("");
+      }
+
+      function renderExperience() {
+        const timeline = document.getElementById("experience-timeline");
+        timeline.innerHTML = PORTFOLIO_DATA.experiences
+          .map(
+            (exp) => `
+            <article class="timeline-item reveal">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">${escapeHTML(exp.role)}</h3>
+                  <p class="timeline-company">${escapeHTML(exp.company)}</p>
+                </div>
+                <span class="timeline-period">${escapeHTML(exp.period)}</span>
+              </div>
+              <div class="timeline-body">
+                <div>
+                  <h4 class="timeline-block-title">工作職責 (Responsibilities)</h4>
+                  <ul class="timeline-list">
+                    ${exp.responsibilities.map((r) => `<li>${escapeHTML(r)}</li>`).join("")}
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="timeline-block-title">量化成果 (Key Achievements)</h4>
+                  <ul class="timeline-list">
+                    ${exp.achievements.map((a) => `<li>${escapeHTML(a)}</li>`).join("")}
+                  </ul>
+                </div>
+              </div>
+              <div class="timeline-tags" aria-label="使用工具與技能">
+                ${exp.tools.map((tool) => `<span class="tag-pill">${escapeHTML(tool)}</span>`).join("")}
+              </div>
+            </article>
+          `
+          )
+          .join("");
+      }
+
+      function renderEducation() {
+        const eduList = document.getElementById("education-list");
+        eduList.innerHTML = PORTFOLIO_DATA.education
+          .map(
+            (edu) => `
+            <article class="edu-card">
+              <div class="edu-card-top">
+                <h4 class="edu-school">${escapeHTML(edu.school)}</h4>
+                <span class="edu-period">${escapeHTML(edu.period)}</span>
+              </div>
+              <p class="edu-degree">${escapeHTML(edu.department)} ｜ ${escapeHTML(edu.degree)}</p>
+              <p class="edu-desc">${escapeHTML(edu.description)}</p>
+            </article>
+          `
+          )
+          .join("");
+
+        const certList = document.getElementById("certifications-list");
+        certList.innerHTML = PORTFOLIO_DATA.certifications
+          .map(
+            (cert) => `
+            <article class="edu-card">
+              <div class="edu-card-top">
+                <h4 class="edu-school">${escapeHTML(cert.name)}</h4>
+                <span class="edu-period">${escapeHTML(cert.period)}</span>
+              </div>
+              <p class="edu-degree">${escapeHTML(cert.issuer)}</p>
+              <p class="edu-desc">${escapeHTML(cert.description)}</p>
+            </article>
+          `
+          )
+          .join("");
+      }
+
+      /* ----------------------------------------------------------------------
+         3. Projects 作品集篩選與 Modal 彈窗
+         ---------------------------------------------------------------------- */
+      let currentProjectCategory = "All";
+
+      function renderProjectFilters() {
+        const filterBar = document.getElementById("project-filters");
+        filterBar.innerHTML = PORTFOLIO_DATA.projectCategories
+          .map((cat) => {
+            const label = cat === "All" ? "全部 (All)" : cat;
+            const isActive = cat === currentProjectCategory;
+            return `
+              <button type="button"
+                      class="filter-btn ${isActive ? "active" : ""}"
+                      role="tab"
+                      aria-selected="${isActive}"
+                      data-category="${escapeHTML(cat)}">
+                ${escapeHTML(label)}
+              </button>
+            `;
+          })
+          .join("");
+
+        filterBar.querySelectorAll(".filter-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            currentProjectCategory = btn.getAttribute("data-category");
+            renderProjectFilters();
+            renderProjects();
+          });
+        });
+      }
+
+      function renderProjects() {
+        const grid = document.getElementById("projects-grid");
+        const filtered =
+          currentProjectCategory === "All"
+            ? PORTFOLIO_DATA.projects
+            : PORTFOLIO_DATA.projects.filter((p) => p.category === currentProjectCategory);
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `
+            <div class="empty-state-box">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto; opacity: 0.65;">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="9" x2="15" y2="15"></line>
+                <line x1="15" y1="9" x2="9" y2="15"></line>
+              </svg>
+              <h3 class="empty-state-title">內容建置中</h3>
+              <p>「${escapeHTML(currentProjectCategory)}」分類目前尚未新增作品資料，未來可於 data.js 中隨時擴充。</p>
+            </div>
+          `;
+          return;
+        }
+
+        grid.innerHTML = filtered
+          .map(
+            (proj) => `
+            <article class="project-card">
+              <div class="project-cover">
+                ${
+                  proj.coverUrl
+                    ? `<img src="${escapeHTML(proj.coverUrl)}" alt="${escapeHTML(proj.title)} 封面圖" />`
+                    : `<div class="project-cover-placeholder">
+                         <span class="project-cover-label">[作品封面圖預留區 16:9]</span>
+                         <span style="font-size: 0.875rem; opacity: 0.85;">${escapeHTML(proj.category)}</span>
+                       </div>`
+                }
+              </div>
+              <div class="project-body">
+                <span class="project-category-badge">${escapeHTML(proj.category)}</span>
+                <h3 class="project-title">${escapeHTML(proj.title)}</h3>
+                <div class="project-meta-list">
+                  <p class="project-meta-item"><strong>專案背景：</strong>${escapeHTML(proj.background)}</p>
+                  <p class="project-meta-item"><strong>解決問題：</strong>${escapeHTML(proj.problem)}</p>
+                  <p class="project-meta-item"><strong>負責項目：</strong>${escapeHTML(proj.role)}</p>
+                  <p class="project-meta-item"><strong>成果摘要：</strong>${escapeHTML(proj.outcome)}</p>
+                </div>
+                <div class="project-tech-list">
+                  ${proj.technologies.map((tech) => `<span class="project-tech-tag">${escapeHTML(tech)}</span>`).join("")}
+                </div>
+                <div class="project-actions">
+                  <button type="button" class="btn btn-secondary btn-sm" data-action="github" data-id="${escapeHTML(proj.id)}">
+                    ${ICONS.github}
+                    <span>GitHub</span>
+                  </button>
+                  <button type="button" class="btn btn-secondary btn-sm" data-action="demo" data-id="${escapeHTML(proj.id)}">
+                    ${ICONS.externalLink}
+                    <span>Live Demo</span>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm btn-detail" data-action="detail" data-id="${escapeHTML(proj.id)}">
+                    查看詳細內容
+                  </button>
+                </div>
+              </div>
+            </article>
+          `
+          )
+          .join("");
+
+        // 綁定卡片按鈕事件
+        grid.querySelectorAll("button[data-action]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const action = btn.getAttribute("data-action");
+            const id = btn.getAttribute("data-id");
+            const project = PORTFOLIO_DATA.projects.find((p) => p.id === id);
+            if (!project) return;
+
+            if (action === "github") {
+              handleExternalLink(project.githubUrl, `${project.title} - GitHub`);
+            } else if (action === "demo") {
+              handleExternalLink(project.demoUrl, `${project.title} - Live Demo`);
+            } else if (action === "detail") {
+              openProjectModal(project);
+            }
+          });
+        });
+      }
+
+      // 作品詳細內容 Modal 控制
+      let lastFocusedElement = null;
+
+      function openProjectModal(project) {
+        lastFocusedElement = document.activeElement;
+        const modal = document.getElementById("project-modal");
+        document.getElementById("modal-project-category").textContent = project.category;
+        document.getElementById("modal-project-title").textContent = project.title;
+
+        document.getElementById("modal-project-body").innerHTML = `
+          <div>
+            <h4 class="modal-section-title">專案背景 (Project Background)</h4>
+            <p class="modal-section-content">${escapeHTML(project.background)}</p>
+          </div>
+          <div>
+            <h4 class="modal-section-title">解決的問題 (Problem Statement)</h4>
+            <p class="modal-section-content">${escapeHTML(project.problem)}</p>
+          </div>
+          <div>
+            <h4 class="modal-section-title">個人負責項目 (My Role &amp; Responsibilities)</h4>
+            <p class="modal-section-content">${escapeHTML(project.role)}</p>
+          </div>
+          <div>
+            <h4 class="modal-section-title">成果摘要 (Outcome &amp; Impact)</h4>
+            <p class="modal-section-content">${escapeHTML(project.outcome)}</p>
+          </div>
+          <div>
+            <h4 class="modal-section-title">使用技術與工具 (Technologies &amp; Tools)</h4>
+            <div class="project-tech-list" style="padding-top: 4px; margin-bottom: 0;">
+              ${project.technologies.map((tech) => `<span class="project-tech-tag">${escapeHTML(tech)}</span>`).join("")}
+            </div>
+          </div>
+        `;
+
+        const footer = document.getElementById("modal-project-footer");
+        footer.innerHTML = `
+          <button type="button" class="btn btn-secondary btn-sm" id="modal-github-btn">
+            ${ICONS.github}
+            <span>GitHub 原始碼</span>
+          </button>
+          <button type="button" class="btn btn-secondary btn-sm" id="modal-demo-btn">
+            ${ICONS.externalLink}
+            <span>Live Demo 預覽</span>
+          </button>
+          <button type="button" class="btn btn-primary btn-sm" id="modal-done-btn">關閉視窗</button>
+        `;
+
+        document.getElementById("modal-github-btn").addEventListener("click", () => {
+          handleExternalLink(project.githubUrl, `${project.title} - GitHub`);
+        });
+        document.getElementById("modal-demo-btn").addEventListener("click", () => {
+          handleExternalLink(project.demoUrl, `${project.title} - Live Demo`);
+        });
+        document.getElementById("modal-done-btn").addEventListener("click", closeProjectModal);
+
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        document.getElementById("modal-close-btn").focus();
+      }
+
+      function closeProjectModal() {
+        const modal = document.getElementById("project-modal");
+        modal.classList.remove("is-open");
+        document.body.style.overflow = "";
+        if (lastFocusedElement) {
+          lastFocusedElement.focus();
+        }
+      }
+
+      function initModalEvents() {
+        const modal = document.getElementById("project-modal");
+        document.getElementById("modal-close-btn").addEventListener("click", closeProjectModal);
+
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            closeProjectModal();
+          }
+        });
+      }
+
+      /* ----------------------------------------------------------------------
+         4. Skills 專業技能渲染
+         ---------------------------------------------------------------------- */
+      function renderSkills() {
+        const grid = document.getElementById("skills-grid");
+        grid.innerHTML = PORTFOLIO_DATA.skillCategories
+          .map(
+            (cat) => `
+            <article class="skill-card reveal">
+              <div class="skill-card-header">
+                <div class="skill-icon">${ICONS[cat.icon] || ICONS.code}</div>
+                <div>
+                  <h3 class="skill-category-title">${escapeHTML(cat.enTitle)}</h3>
+                  <p class="skill-category-zh">${escapeHTML(cat.zhTitle)}</p>
+                </div>
+              </div>
+              <div class="skill-pills">
+                ${cat.skills.map((skill) => `<span class="skill-pill">${escapeHTML(skill)}</span>`).join("")}
+              </div>
+            </article>
+          `
+          )
+          .join("");
+      }
+
+      /* ----------------------------------------------------------------------
+         5. Contact 聯絡資訊與可擴充履歷 PDF 下載
+         ---------------------------------------------------------------------- */
+      function copyTextFallback(text) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand("copy");
+          showToast(`已複製電子信箱：${text}`);
+        } catch (err) {
+          showToast("複製失敗，請手動選取複製。");
+        }
+        document.body.removeChild(textarea);
+      }
+
+      function renderContact() {
+        const { contact } = PORTFOLIO_DATA;
+        document.getElementById("contact-desc").textContent = contact.description;
+
+        const hasResume = contact.resumePdfPath && contact.resumePdfPath.trim() !== "";
+        document.getElementById("resume-status-text").textContent = hasResume
+          ? `檔案已就緒：${contact.resumeFileName}`
+          : "[履歷 PDF 檔案預留區 - 尚未設定檔案路徑]";
+
+        document.getElementById("download-resume-btn").addEventListener("click", () => {
+          if (!hasResume) {
+            showToast("尚未設定履歷 PDF 檔案路徑（請將檔案放入 assets/resume/ 並於 data.js 設定路徑）。");
+            return;
+          }
+          const link = document.createElement("a");
+          link.href = contact.resumePdfPath;
+          link.download = contact.resumeFileName || "Resume.pdf";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          showToast("正在開始下載履歷 PDF...");
+        });
+
+        const contactItems = [
+          {
+            key: "email",
+            label: "Email 電子信箱（點擊複製）",
+            value: contact.email,
+            icon: ICONS.mail
+          },
+          {
+            key: "github",
+            label: "GitHub 程式碼庫",
+            value: contact.githubUrl || "[GitHub 連結尚未設定]",
+            icon: ICONS.github
+          },
+          {
+            key: "linkedin",
+            label: "LinkedIn 專業檔案",
+            value: contact.linkedinUrl || "[LinkedIn 連結尚未設定]",
+            icon: ICONS.linkedin
+          },
+          {
+            key: "portfolio",
+            label: "其他作品集 / 文件連結",
+            value: contact.portfolioUrl || "[其他作品連結尚未設定]",
+            icon: ICONS.folder
+          }
+        ];
+
+        const listEl = document.getElementById("contact-links-list");
+        listEl.innerHTML = contactItems
+          .map(
+            (item) => `
+            <button type="button" class="contact-item-btn" data-contact-key="${item.key}">
+              <span class="contact-item-left">
+                ${item.icon}
+                <span>
+                  <span class="contact-item-label" style="display:block;">${escapeHTML(item.label)}</span>
+                  <span class="contact-item-value">${escapeHTML(item.value)}</span>
+                </span>
+              </span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.75;">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          `
+          )
+          .join("");
+
+        listEl.querySelectorAll(".contact-item-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const key = btn.getAttribute("data-contact-key");
+            if (key === "email") {
+              const emailVal = (contact.email || "").trim();
+              if (!emailVal || emailVal.startsWith("[")) {
+                showToast("尚未設定正式 Email 地址，請於 data.js 中更新。");
+              } else {
+                copyTextFallback(emailVal);
+              }
+            } else if (key === "github") {
+              handleExternalLink(contact.githubUrl, "GitHub");
+            } else if (key === "linkedin") {
+              handleExternalLink(contact.linkedinUrl, "LinkedIn");
+            } else if (key === "portfolio") {
+              handleExternalLink(contact.portfolioUrl, "其他作品連結");
+            }
+          });
+        });
+      }
+
+      /* ----------------------------------------------------------------------
+         6. 導覽列互動、手機版抽屜選單、Scroll Spy 與回到頂部
+         ---------------------------------------------------------------------- */
+      function initNavigation() {
+        const navbar = document.getElementById("navbar");
+        const backToTopBtn = document.getElementById("back-to-top");
+        const drawer = document.getElementById("mobile-drawer");
+        const openBtn = document.getElementById("mobile-menu-open");
+        const closeBtn = document.getElementById("mobile-menu-close");
+        const backdrop = document.getElementById("mobile-drawer-backdrop");
+
+        function openDrawer() {
+          drawer.classList.add("is-open");
+          openBtn.setAttribute("aria-expanded", "true");
+          document.body.style.overflow = "hidden";
+          closeBtn.focus();
+        }
+
+        function closeDrawer() {
+          drawer.classList.remove("is-open");
+          openBtn.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+        }
+
+        openBtn.addEventListener("click", openDrawer);
+        closeBtn.addEventListener("click", closeDrawer);
+        backdrop.addEventListener("click", closeDrawer);
+
+        drawer.querySelectorAll(".mobile-nav-link").forEach((link) => {
+          link.addEventListener("click", () => {
+            closeDrawer();
+          });
+        });
+
+        // 全域 ESC 鍵關閉抽屜或 Modal
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            if (drawer.classList.contains("is-open")) {
+              closeDrawer();
+            }
+            const modal = document.getElementById("project-modal");
+            if (modal.classList.contains("is-open")) {
+              closeProjectModal();
+            }
+          }
+        });
+
+        // 回到頂部按鈕點擊
+        backToTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // 捲動監聽：導覽列陰影、回到頂部按鈕、Scroll Spy 當前區塊高亮
+        const sections = document.querySelectorAll("main section[id]");
+        const allNavLinks = document.querySelectorAll("[data-section]");
+
+        function onScroll() {
+          const scrollY = window.scrollY;
+
+          if (scrollY > 16) {
+            navbar.classList.add("is-scrolled");
+          } else {
+            navbar.classList.remove("is-scrolled");
+          }
+
+          if (scrollY > 420) {
+            backToTopBtn.classList.add("is-visible");
+          } else {
+            backToTopBtn.classList.remove("is-visible");
+          }
+
+          let activeId = "";
+          sections.forEach((sec) => {
+            const top = sec.offsetTop - 130;
+            const height = sec.offsetHeight;
+            if (scrollY >= top && scrollY < top + height) {
+              activeId = sec.getAttribute("id");
+            }
+          });
+
+          allNavLinks.forEach((link) => {
+            if (link.getAttribute("data-section") === activeId) {
+              link.classList.add("active");
+            } else {
+              link.classList.remove("active");
+            }
+          });
+        }
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      }
+
+      /* ----------------------------------------------------------------------
+         7. 頁面進入動畫 (IntersectionObserver + prefers-reduced-motion)
+         ---------------------------------------------------------------------- */
+      function initScrollReveal() {
+        const prefersReduced =
+          window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const elements = document.querySelectorAll(".reveal");
+
+        if (prefersReduced || !("IntersectionObserver" in window)) {
+          elements.forEach((el) => el.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+        );
+
+        elements.forEach((el) => observer.observe(el));
+      }
+
+      // 初始化啟動
+      document.addEventListener("DOMContentLoaded", () => {
+        initTheme();
+        renderHero();
+        renderAbout();
+        renderExperience();
+        renderEducation();
+        renderProjectFilters();
+        renderProjects();
+        renderSkills();
+        renderContact();
+        initModalEvents();
+        initNavigation();
+        initScrollReveal();
+      });
+    })();
+  </script>
+</body>
+</html>
